@@ -1,0 +1,15 @@
+﻿{
+    "title": "El alfabeto crílico",
+    "subtitle": "El alfabeto que se usa es el crílico",
+    "description": "Es una variante del alfabeto cirílico. Desde el año 1918 (oficialmente desde 1942) consta de 33 letras.\nFue desarrollado en Bulgaria. Desde allí fue introducido en la Rus de Kiev, estado medieval de los eslavos del este. Esta introducción fue simultánea a su conversión al cristianismo en 988 d. C. o, si ciertos restos arqueológicos están correctamente datados, en una fecha ligeramente anterior.",
+    "symbols": [
+        {
+            "uppercase": "A",
+            "lowercase": "a"
+        },
+        {
+            "uppercase": "Б",
+            "lowercase": "б"
+        }
+    ]
+}

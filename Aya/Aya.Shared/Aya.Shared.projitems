@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>480f930d-61d9-48d1-bb8e-ba5e4dbe8ef6</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Aya</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\DataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Alfabeto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\DesignerDataContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Simbolo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\HubViewModel.cs" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Alphabet.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Background.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LightGray.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\MediumGray.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DarkGray.png" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
+    <Content Include="$(MSBuildThisFileDirectory)JSONData\alfabeto.json" />
+    <Content Include="$(MSBuildThisFileDirectory)JSONData\SampleData.json" />
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\es\Resources.resw" />
+  </ItemGroup>
+</Project>
