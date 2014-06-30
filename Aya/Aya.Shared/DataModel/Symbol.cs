@@ -11,7 +11,7 @@ namespace Aya.DataModel
         public string Lowercase { get; set; }
         public string Origin { get; set; }
 		public string Description { get; set; }
-        public string IPA { get; set; }
+        public string SAMPA { get; set; }
 
     }
 }

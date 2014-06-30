@@ -83,6 +83,10 @@ namespace Aya
             {
                 this.Frame.Navigate(typeof(AlphabetPage), group);
             }
+            else if ("numbers".Equals(section.Tag))
+            {
+                this.Frame.Navigate(typeof(NumbersPage), group);
+            }
             //this.Frame.Navigate(typeof(SectionPage), ((SampleDataGroup)group).UniqueId);
         }
 

@@ -104,22 +104,7 @@ namespace Aya.DataModel
 
             StorageFile fileA = await StorageFile.GetFileFromApplicationUriAsync(uriAlfabeto);
             string jsonTextA = await FileIO.ReadTextAsync(fileA);
-            JsonObject jsonObjectA = JsonObject.Parse(jsonTextA);
-            _alfabeto = new Alphabet(jsonObjectA["title"].GetString()
-                , jsonObjectA["subtitle"].GetString()
-                , jsonObjectA["description"].GetString());
-
-            JsonArray simbolos = jsonObjectA["symbols"].GetArray();
-            foreach (JsonValue simbolo in simbolos)
-            {
-                JsonObject simb = simbolo.GetObject();
-                _alfabeto.AddSymbol(new Symbol()
-                {
-                    Lowercase = simb["lowercase"].GetString(),
-                    Uppercase = simb["uppercase"].GetString(),
-					Description = simb["description"].GetString()
-                });
-            }
+            _alfabeto = Alphabet.FromString(jsonTextA);
             #endregion
         }
 

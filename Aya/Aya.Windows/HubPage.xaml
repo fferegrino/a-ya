@@ -58,12 +58,12 @@
                         VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
                 </Grid>
             </Hub.Header>
-            <HubSection Width="760" Margin="0,0,80,0">
+            <HubSection Width="700" Margin="0,0,80,0">
                 <HubSection.Background>
                     <ImageBrush ImageSource="Assets/Background.jpg" Stretch="UniformToFill" />
                 </HubSection.Background>
             </HubSection>
-            <HubSection DataContext="{Binding Alfabeto}" Tag="alphabet" IsHeaderInteractive="True" Width="500" x:Uid="Section1Header" Header="{Binding Title}">
+            <HubSection DataContext="{Binding Alfabeto}" Tag="alphabet" IsHeaderInteractive="True" Width="500" x:Uid="Section1Header" Header="Alfabeto">
                 <DataTemplate>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -72,14 +72,47 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
+
                         <Image Source="Assets/Alphabet.jpg" Stretch="Fill" Width="420" Height="280"/>
-                        <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap"  
-                                   x:Uid="Section1Subtitle" Text="{Binding Subtitle}"/>
-                        <TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="3"
-                                   x:Uid="Section1DescriptionText" Text="{Binding Description}"/>
+                        <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding Subtitle}"/>
+                        <TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="2" Text="{Binding Description}"/>
                     </Grid>
                 </DataTemplate>
             </HubSection>
+            <!--<HubSection IsHeaderInteractive="True" DataContext="{Binding Section3Items}" d:DataContext="{Binding Groups[3], Source={d:DesignData Source=../Aya.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"-->
+            <HubSection IsHeaderInteractive="True" Tag="numbers" DataContext="{Binding Alfabeto}"
+                        x:Uid="Section3Header" Header="Los números" Padding="40,40,40,32">
+                <DataTemplate>
+                    <GridView
+                        x:Name="itemGridView"
+                        ItemsSource="{Binding NumbersDisplay}"
+                        AutomationProperties.AutomationId="ItemGridView"
+                        AutomationProperties.Name="Items In Group"
+                        SelectionMode="None"
+                        IsSwipeEnabled="false">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"></RowDefinition>
+                                        <RowDefinition Height="50"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.RowSpan="2" Background="{StaticResource ApplicationForegroundThemeBrush}">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="{StaticResource AppBarSeparatorForegroundThemeBrush}" Text="{Binding NumberString}"></TextBlock>
+                                    </Border>
+                                    <TextBlock Padding="20,0,10,0" FontSize="25" VerticalAlignment="Center" Text="{Binding Name}" Grid.Column="1"></TextBlock>
+                                    <TextBlock Padding="20,0,10,0" FontSize="25"  VerticalAlignment="Center" Text="{Binding SAMPA}" Grid.Column="1" Grid.Row="1"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+            <!--
             <HubSection Width="520" x:Uid="Section2Header" Header="Section 2">
                 <DataTemplate>
                     <Grid>
@@ -100,27 +133,8 @@
                     </Grid>
                 </DataTemplate>
             </HubSection>
-            <!--<HubSection IsHeaderInteractive="True" DataContext="{Binding Section3Items}" d:DataContext="{Binding Groups[3], Source={d:DesignData Source=../Aya.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"-->
-            <HubSection IsHeaderInteractive="True" DataContext="{Binding Section3Items}"
-                        x:Uid="Section3Header" Header="Section 3" Padding="40,40,40,32">
-                <DataTemplate>
-                    <GridView
-                        x:Name="itemGridView"
-                        ItemsSource="{Binding Items}"
-                        Margin="-9,-14,0,0"
-                        AutomationProperties.AutomationId="ItemGridView"
-                        AutomationProperties.Name="Items In Group"
-                        ItemTemplate="{StaticResource Standard310x260ItemTemplate}"
-                        SelectionMode="None"
-                        IsSwipeEnabled="false"
-                        IsItemClickEnabled="True"
-                        ItemClick="ItemView_ItemClick">
-                    </GridView>
-                </DataTemplate>
-            </HubSection>
             <HubSection x:Uid="Section4Header" Header="Section 4">
                 <DataTemplate>
-                    <!-- width of 400 -->
                     <StackPanel Orientation="Vertical">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -148,6 +162,7 @@
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
+            -->
         </Hub>
     </Grid>
 </Page>

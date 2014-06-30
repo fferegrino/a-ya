@@ -16,9 +16,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\DataSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Alfabeto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Alphabet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\DesignerDataContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Simbolo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Number.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Symbol.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\HubViewModel.cs" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Alphabet.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Background.jpg" />
