@@ -116,8 +116,8 @@ namespace Aya.DataModel
                 _alfabeto.AddSymbol(new Symbol()
                 {
                     Lowercase = simb["lowercase"].GetString(),
-                    Uppercase = simb["uppercase"].GetString() //,
-                    //UniqueID = simb["uid"].GetString()
+                    Uppercase = simb["uppercase"].GetString(),
+					Description = simb["description"].GetString()
                 });
             }
             #endregion

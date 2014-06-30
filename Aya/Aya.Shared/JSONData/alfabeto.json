@@ -5,11 +5,33 @@
     "symbols": [
         {
             "uppercase": "A",
-            "lowercase": "a"
+            "lowercase": "a",
+			"description" : "Proviene directamente de la letra alfa del alfabeto griego. En el alfabeto cirílico antiguo su nombre era azǔ y representaba al número uno."
         },
         {
             "uppercase": "Б",
-            "lowercase": "б"
-        }
+            "lowercase": "б",
+			"description": "La letra Б es derivada de la letra beta del alfabeto griego, aunque en el alfabeto cursivo ruso es más parecida a una delta, δ. El nombre antiguo de esta letra era buki. No tenía ningún valor numérico."
+        },
+        {
+            "uppercase": "В",
+            "lowercase": "в",
+			"description": "Junto con la Б del alfabeto cirílico, esta letra es derivada de la letra beta del alfabeto griego."
+        },
+		{
+			"uppercase": "Г",
+			"lowercase": "г",
+			"description": "Proviene de la letra gamma del alfabeto griego. Ambas letras son iguales en las versiones estándar de ambos alfabetos."
+		},
+		{
+			"uppercase": "Д",
+			"lowercase": "д",
+			"description": "Proviene de la letra del alfabeto griego delta (Δ). La mayor diferencia gráfica con su equivalente griego se encuentra en las dos patas por debajo de las dos esquinas inferiores."
+		},
+		{
+			"uppercase": "Е",
+			"lowercase": "е",
+			"description": "Es exactamente como la letra latina E. Deriva de la épsilon (Ε, ε) griega."
+		}
     ]
 }

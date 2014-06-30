@@ -79,7 +79,7 @@ namespace Aya
             
             HubSection section = e.Section;
             var group = section.DataContext;
-            if (section.Tag.Equals("alphabet"))
+            if ("alphabet".Equals(section.Tag))
             {
                 this.Frame.Navigate(typeof(AlphabetPage), group);
             }

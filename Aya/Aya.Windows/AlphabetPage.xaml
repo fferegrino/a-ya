@@ -13,21 +13,39 @@
 
     <Page.Resources>
         <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
+        <Style x:Key="SymbolStyle" BasedOn="{StaticResource TitleTextBlockStyle}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="60"></Setter>
+            <Setter Property="Margin" Value="0, 0,0,15"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="NormalText" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="FontFamily" Value="Segoe UI Light"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+        </Style>
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource 
         x:Name="itemsViewSource"
         Source="{Binding Alfabeto.Symbols}"/>
         <DataTemplate x:Key="SymbolItem">
-            <Grid Margin="6">
+            <Grid Margin="10" Height="80" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50"/>
-					<ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="{Binding Uppercase}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap" FontSize="32" FontWeight="Bold"/>
-                <TextBlock Grid.Column="1" Text="{Binding Lowercase}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap" FontSize="32" FontWeight="Bold"/>
-                <StackPanel Grid.Column="2" Margin="10,0,0,0">
-                    <TextBlock Text="{Binding Description}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap" MaxHeight="40"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0">
+                    <TextBlock Text="{Binding Uppercase}" Style="{StaticResource SymbolStyle}" TextWrapping="NoWrap" />
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock Text="{Binding Lowercase}" Style="{StaticResource SymbolStyle}" TextWrapping="NoWrap" />
+                </Border>
+                <StackPanel VerticalAlignment="bottom" Grid.Column="2" Margin="0,0,0,0">
+                    <TextBlock Text="{Binding Description}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="WrapWholeWords" />
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -49,7 +67,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="primaryColumn" Width="420"/>
+            <ColumnDefinition x:Name="primaryColumn" Width="550"/>
             <ColumnDefinition x:Name="secondaryColumn" Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -76,16 +94,15 @@
             AutomationProperties.Name="Items"
             TabIndex="1"
             Grid.Row="1"
-            Margin="-10,-10,0,0"
-            Padding="120,0,0,60"
+            Margin="10,0,0,0"
+            Padding="0,0,0,20"
             ItemsSource="{Binding Symbols}"
             IsSwipeEnabled="False"
             SelectionChanged="ItemListView_SelectionChanged"
-                  ItemTemplate="{StaticResource SymbolItem}"
-			>
+            ItemTemplate="{StaticResource SymbolItem}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="FrameworkElement">
-                    <Setter Property="Margin" Value="0,0,0,10"/>
+                    <Setter Property="Margin" Value="0,0,40,0"/>
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
@@ -96,31 +113,35 @@
             x:Name="itemDetail"
             AutomationProperties.AutomationId="ItemDetailScrollViewer"
             Grid.Column="1"
-            Grid.RowSpan="2"
-            Padding="60,0,66,0"
+            Grid.Row="1"
+            Padding="0,0,66,0"
             DataContext="{Binding SelectedItem, ElementName=itemListView}"
 			d:DataContext="{Binding Source={StaticResource ddContext}}"
             HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
             ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.VerticalScrollMode="Enabled"
-            ScrollViewer.ZoomMode="Disabled">
+            ScrollViewer.ZoomMode="Disabled" Margin="0,10,38,-10">
 
-            <Grid x:Name="itemDetailGrid" Margin="0,60,0,50" d:DataContext="{Binding Alfabeto.Symbols[0]}">
+            <Grid x:Name="itemDetailGrid" Margin="20,10,0,50" d:DataContext="{Binding Alfabeto.Symbols[0]}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                
+                <TextBlock Text="Mayúscula" HorizontalAlignment="Center" Grid.Column="0" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+                <TextBlock Text="Minúscula" HorizontalAlignment="Center"  Grid.Column="1" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+                <TextBlock x:Name="itemUppercase" Grid.Column="0" Grid.Row="1" Text="{Binding Uppercase}" Style="{StaticResource SymbolStyle}"/>
+                <TextBlock x:Name="itemLowercase" Grid.Column="1" Grid.Row="1" Text="{Binding Lowercase}" Style="{StaticResource SymbolStyle}"/>
 
-                <Image Grid.Row="1" Margin="0,0,20,0" Width="180" Height="180" Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                <StackPanel x:Name="itemDetailTitlePanel" Grid.Row="1" Grid.Column="1">
-                    <TextBlock x:Name="itemTitle" Margin="0,-10,0,0" Text="{Binding Uppercase}" Style="{StaticResource SubheaderTextBlockStyle}"/>
-                    <TextBlock x:Name="itemSubtitle" Margin="0,0,0,20" Text="{Binding Subtitle}" Style="{StaticResource SubtitleTextBlockStyle}"/>
-                </StackPanel>
-                <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="0,20,0,0" Text="{Binding Content}" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Orígen" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="IPA" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Text="{Binding IPA}" FontSize="70"></TextBlock>
+                <TextBlock Grid.Row="3" Margin="0,0,0,0" Text="{Binding Origin}" Style="{StaticResource NormalText}"/>
             </Grid>
         </ScrollViewer>
 
