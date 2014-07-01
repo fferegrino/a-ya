@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="Aya.AlphabetPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Aya"
+    xmlns:converters="using:Aya.Common.Converters"
+	xmlns:data="using:Aya.DataModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converters:StringToSoundUri x:Key="uriConverter"></converters:StringToSoundUri>
+        <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="APRENDE RUSO" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="alfabeto crílico" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0" DataContext="{Binding Alfabeto}">
+            <ListView ItemsSource="{Binding Symbols}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Sonido" Click="Button_Click"></Button>
+                            <MediaElement Source="{Binding Uppercase,Converter={StaticResource uriConverter}}"></MediaElement>
+                            <TextBlock Text="{Binding Uppercase}"></TextBlock>
+                        </StackPanel>
+                        -->
+                        <Grid Height="80">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button  Height="80" MaxWidth="80" Content="P" Margin="0" Padding="0" Grid.RowSpan="2" Click="PlaySound_Click"></Button>
+                            <MediaElement AutoPlay="False" Source="{Binding Uppercase,Converter={StaticResource uriConverter}}"></MediaElement>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="1">
+                                <TextBlock Margin="10,0" FontSize="25" Text="{Binding Uppercase}"></TextBlock>
+                                <TextBlock Margin="10,0" FontSize="25" Text="{Binding Lowercase}"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

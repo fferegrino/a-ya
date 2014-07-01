@@ -21,7 +21,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\DesignerDataContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Number.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Symbol.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\HubViewModel.cs" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Alphabet.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Background.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LightGray.png" />

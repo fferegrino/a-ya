@@ -32,7 +32,7 @@ namespace Aya
     {
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources");
+        
 
         public HubPage()
         {
@@ -79,11 +79,7 @@ namespace Aya
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            /*
-            var sampleDataGroups = await DataSource.GetGroupsAsync();
-            this.DefaultViewModel["Groups"] = sampleDataGroups;
-             * */
+            this.DefaultViewModel["Alfabeto"] = await DataSource.GetAlphabetAsync();
         }
 
         /// <summary>
@@ -156,5 +152,10 @@ namespace Aya
         }
 
         #endregion
+
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AlphabetPage), this.DefaultViewModel["Alfabeto"]);
+        }
     }
 }

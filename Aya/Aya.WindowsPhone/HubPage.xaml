@@ -6,15 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
-    d:DataContext="{Binding Source={d:DesignData Source=../Aya.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
-    xmlns:data="using:Aya.Data"
+    xmlns:data="using:Aya.DataModel"
     mc:Ignorable="d">
 
     <Page.Resources>
+
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
-                    <ImageBrush x:Key="HubBackgroundImageBrush" ImageSource="Assets/HubBackground.png"/>
+                    <ImageBrush x:Key="HubBackgroundImageBrush" Opacity="0.3" ImageSource="Assets/HubBackground.png"/>
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="HighContrast">
                     <ImageBrush x:Key="HubBackgroundImageBrush" ImageSource="{x:Null}"/>
@@ -67,30 +67,43 @@
                     </StackPanel>
                 </Grid>
             </DataTemplate>
+            <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid x:Name="LayoutRoot">
-        <Hub x:Name="Hub" x:Uid="Hub" Header="application name" Background="{ThemeResource HubBackgroundImageBrush}">
-            <HubSection x:Uid="HubSection1" Header="SECTION 1" DataContext="{Binding Groups}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+    <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
+        <Hub x:Name="Hub" x:Uid="Hub" Header="aprende ruso" Background="{ThemeResource HubBackgroundImageBrush}">
+            <HubSection x:Uid="HubSection1" Header="ALFABETO"  DataContext="{Binding Alfabeto}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Subtitle}" FontSize="25" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Text="{Binding Description}" FontSize="20" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Text="Ver las letras >" FontSize="30" Tapped="TextBlock_Tapped"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+            <HubSection x:Uid="HubSection1" Header="LOS NÚMEROS"  DataContext="{Binding Alfabeto}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
                     <ListView
-                        ItemsSource="{Binding}"
-                        IsItemClickEnabled="True"
-                        ItemClick="GroupSection_ItemClick"
-                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        ItemsSource="{Binding Numbers}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="0,0,0,27.5">
-                                    <TextBlock Text="{Binding Title}" Style="{ThemeResource ListViewItemTextBlockStyle}" />
-                                </StackPanel>
+                                <Grid Margin="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Border MinWidth="50" Padding="10, 5, 10, 5" Background="{StaticResource PhoneAccentBrush}">
+                                        <TextBlock HorizontalAlignment="Center" Text="{Binding NumberString}" Style="{ThemeResource ListViewItemTextBlockStyle}"></TextBlock>
+                                    </Border>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Name}" Grid.Column="1" Style="{ThemeResource ListViewItemTextBlockStyle}" />
+                                </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </DataTemplate>
             </HubSection>
-
-            <HubSection x:Uid="HubSection2" Header="SECTION 2" Width="Auto"
+            <!-- HubSection x:Uid="HubSection2" Header="SECTION 2" Width="Auto"
                          DataContext="{Binding Groups[0]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
                     <GridView
@@ -110,7 +123,7 @@
                         </GridView.ItemsPanel>
                     </GridView>
                 </DataTemplate>
-            </HubSection>
+            </>
 
             <HubSection x:Uid="HubSection3" Header="SECTION 3"
                         DataContext="{Binding Groups[1]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
@@ -165,7 +178,7 @@
                         ContinuumNavigationTransitionInfo.ExitElementContainer="True">
                     </ListView>
                 </DataTemplate>
-            </HubSection>
+            </HubSection -->
         </Hub>
     </Grid>
 </Page>

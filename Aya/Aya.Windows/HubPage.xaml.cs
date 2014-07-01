@@ -66,7 +66,7 @@ namespace Aya
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             //var sampleDataGroup = await DataSource.GetGroupAsync("Group-4");
             //this.DefaultViewModel["Section3Items"] = sampleDataGroup;
-            this.DefaultViewModel["Alfabeto"] = await DataSource.GetAlphabetAsnc();
+            this.DefaultViewModel["Alfabeto"] = await DataSource.GetAlphabetAsync();
         }
 
         /// <summary>

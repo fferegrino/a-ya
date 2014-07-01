@@ -87,8 +87,8 @@ namespace Aya.DataModel
 
 
         private static DataSource _sampleDataSource = new DataSource();
-        public static Alphabet _alfabeto;
-        public static async Task<Alphabet> GetAlphabetAsnc()
+        private static Alphabet _alfabeto;
+        public static async Task<Alphabet> GetAlphabetAsync()
         {
             if (_alfabeto == null)
             {
