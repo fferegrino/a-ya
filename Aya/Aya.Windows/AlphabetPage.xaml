@@ -7,11 +7,13 @@
     xmlns:local="using:Aya"
 	xmlns:data="using:Aya.DataModel"
     xmlns:common="using:Aya.Common"
+    xmlns:converters="using:Aya.Common.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Page.Resources>
+        <converters:StringToSoundUri x:Key="uriConverter"></converters:StringToSoundUri>
         <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
         <Style x:Key="SymbolStyle" BasedOn="{StaticResource TitleTextBlockStyle}" TargetType="TextBlock">
             <Setter Property="FontSize" Value="60"></Setter>
@@ -150,6 +152,8 @@
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="Descripción" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
                 <TextBlock Grid.Row="4" Grid.Column="1" Text="Sonido" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
                 <TextBlock Grid.Row="5" Margin="0,0,0,0" Text="{Binding Description}" Style="{StaticResource NormalText}"/>
+                <Button Grid.Row="5" Grid.Column="1" Content="Play" Click="Button_Click"></Button>
+                <MediaElement AutoPlay="False" x:Name="soundPlayer" Grid.Row="5" Grid.Column="1" Source="{Binding Uppercase,Converter={StaticResource uriConverter}}"></MediaElement>
             </Grid>
         </ScrollViewer>
 
@@ -170,7 +174,7 @@
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView" Storyboard.TargetProperty="Padding">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="120,0,90,60"/>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="20,0,20,60"/>
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
@@ -202,7 +206,7 @@
                             <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,60"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="Padding">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="120,0,90,0"/>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="20,0,0,0"/>
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>

@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\StringToSoundUri.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\DataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Alphabet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\DesignerDataContext.cs" />
@@ -30,6 +31,39 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\A.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\B.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ё.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Б.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Г.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Д.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Е.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ж.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\З.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\И.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Й.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\К.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Л.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\М.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Н.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\О.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\П.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Р.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\С.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Т.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\У.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ф.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Х.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ц.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ч.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ш.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Щ.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ъ.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ы.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ь.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Э.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ю.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Я.wav" />
     <Content Include="$(MSBuildThisFileDirectory)JSONData\alfabeto.json" />
     <Content Include="$(MSBuildThisFileDirectory)JSONData\SampleData.json" />
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\es\Resources.resw" />
