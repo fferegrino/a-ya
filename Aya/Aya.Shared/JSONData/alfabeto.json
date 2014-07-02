@@ -6,50 +6,245 @@
         {
             "uppercase": "A",
             "lowercase": "a",
-            "sampa":  "/a/",
-			"origin" : "Proviene directamente de la letra alfa del alfabeto griego. En el alfabeto cirílico antiguo su nombre era azǔ y representaba al número uno.",
-            "description":  "En el ruso la B se pronuncia como te enseñaron la V tus profesores (poniendo tus dientes superiores sobre tu labio inferior)."
+            "sampa": "/a/",
+            "origin": "Proviene directamente de la letra alfa del alfabeto griego. En el alfabeto cirílico antiguo su nombre era azǔ y representaba al número uno.",
+            "description": "Como la A española"
         },
         {
             "uppercase": "Б",
             "lowercase": "б",
             "sampa": "/b/ o /bʲ/",
-			"origin": "La letra Б es derivada de la letra beta del alfabeto griego, aunque en el alfabeto cursivo ruso es más parecida a una delta, δ. El nombre antiguo de esta letra era buki. No tenía ningún valor numérico.",
-            "description":  "б se pronuncia como \"bomba\" en acento yucateco."
+            "origin": "La letra Б es derivada de la letra beta del alfabeto griego, aunque en el alfabeto cursivo ruso es más parecida a una delta, δ. El nombre antiguo de esta letra era buki. No tenía ningún valor numérico.",
+            "description": "Como la B española. "
         },
         {
             "uppercase": "В",
             "lowercase": "в",
             "sampa": "/v/ o /vʲ/",
-			"origin": "Junto con la Б del alfabeto cirílico, esta letra es derivada de la letra beta del alfabeto griego.",
-            "description":  "En el ruso la B se pronuncia como te enseñaron la V tus profesores (poniendo tus dientes superiores sobre tu labio inferior)."
+            "origin": "Junto con la Б del alfabeto cirílico, esta letra es derivada de la letra beta del alfabeto griego.",
+            "description": "En el ruso la B se pronuncia como te enseñaron la V (poniendo tus dientes superiores sobre tu labio inferior)."
         },
-		{
-			"uppercase": "Г",
-			"lowercase": "г",
+        {
+            "uppercase": "Г",
+            "lowercase": "г",
             "sampa": "/g/",
-			"origin": "Proviene de la letra gamma del alfabeto griego. Ambas letras son iguales en las versiones estándar de ambos alfabetos.",
-            "description":  "El sonido siempre es g sin importar la vocal siguiente. Га, гэ, ги, го, гу equivale a ga, gue, gui, go, gu; nunca como en ge, gi. Entre las letras \"e\" y \"o\" se pronuncia como /v/, ej. \"его\" se pronuncia /yevó/. Este fenómeno aplica sólo al final de palabra y cuando se trata de una terminación de caso (genitivo y acusativo)."
-		},
-		{
-			"uppercase": "Д",
-			"lowercase": "д",
+            "origin": "Proviene de la letra gamma del alfabeto griego. Ambas letras son iguales en las versiones estándar de ambos alfabetos.",
+            "description": "El sonido siempre es g sin importar la vocal siguiente. Га, гэ, ги, го, гу equivale a ga, gue, gui, go, gu; nunca como en ge, gi. Entre las letras \"e\" y \"o\" se pronuncia como /v/, ej. \"его\" se pronuncia /yevó/. Este fenómeno aplica sólo al final de palabra y cuando se trata de una terminación de caso (genitivo y acusativo)."
+        },
+        {
+            "uppercase": "Д",
+            "lowercase": "д",
             "sampa": "/d/ o /dʲ/",
-			"origin": "Proviene de la letra del alfabeto griego delta (Δ). La mayor diferencia gráfica con su equivalente griego se encuentra en las dos patas por debajo de las dos esquinas inferiores.",
-            "description":  "Se pronuncia como la d en español. Para recordar cómo se pronuncia la д, piensa en la D mayúscula con patitas."
-		},
-		{
-			"uppercase": "Е",
-			"lowercase": "е",
-			"origin": "Es exactamente como la letra latina E. Deriva de la épsilon (Ε, ε) griega.",
+            "origin": "Proviene de la letra del alfabeto griego delta (Δ). La mayor diferencia gráfica con su equivalente griego se encuentra en las dos patas por debajo de las dos esquinas inferiores.",
+            "description": "Se pronuncia como la d en español. Para recordar cómo se pronuncia la д, piensa en la D mayúscula con patitas."
+        },
+        {
+            "uppercase": "Е",
+            "lowercase": "е",
+            "origin": "Es exactamente como la letra latina E. Deriva de la épsilon (Ε, ε) griega.",
             "sampa": "/jɛ/ o / ʲɛ/",
-            "description":  "En el ruso la B se pronuncia como te enseñaron la V tus profesores (poniendo tus dientes superiores sobre tu labio inferior)."
-		}
+            "description": "Como ie en la palabra hielo."
+        },
+        {
+            "uppercase": "Ё",
+            "lowercase": "ë",
+            "origin": "Inventada en 1783 por Yekaterina Dashkova, fue usada por primera vez, entre otros, en 1797 por el historiador y escritor ruso Nikolay Karamzin para reemplazar la combinación 'іо' en algunos casos. Pero no alcanzó un uso estandarizado hasta los años 1940.",
+            "sampa": "/jo/ o / ʲɛ/",
+            "description": "Como la palabra 'yo'."
+        },
+        {
+            "uppercase": "Ж",
+            "lowercase": "ж",
+            "origin": "No se sabe de su origen, no hay letras similaes en el griego, latín ni en otro alfabeto de la época.",
+            "sampa": "/ʒ/",
+            "description": "Sonido inexistente en español. Como la j en la palabra francesa jour, o la s en la palabra inglesa measure."
+        },
+        {
+            "uppercase": "З",
+            "lowercase": "з",
+            "origin": "Deriva directamente de la letra griega dseta (Ζ, ζ), origen también de la zeta (Z, z) latina.",
+            "sampa": "/z/",
+            "description": "Su pronunciación es equivalente a la de la z en la mayoría de los idiomas que utilizan en alfabeto latino (distinta a la z en Español de España) como por ejemplo la z en italiano."
+        },
+        {
+            "uppercase": "И",
+            "lowercase": "и",
+            "origin": "Parece una versión invertida de la N mayúscula del alfabeto latino pero fue derivada de la letra eta del alfabeto griego (Η, η, pronunciada [ɛː] en griego antiguo e [i] en griego moderno).",
+            "sampa": "/i/",
+            "description": "Se pronuncia /i/, como la i de 'pino'."
+        },
+        {
+            "uppercase": "Й",
+            "lowercase": "й",
+            "origin": "Su uso comenzó al rededor del siglo XVI, se considera una lettra separada del alfabeto desde los años 30's.",
+            "sampa": "/j/",
+            "description": "Semivocal, como la y en rey."
+        },
+        {
+            "uppercase": "К",
+            "lowercase": "к",
+            "origin": "La letra Ka es un derivado de la griega Kappa (Κ κ).",
+            "sampa": "/k/",
+            "description": "Como la k, la c (ante a, o, y u) y la 'q' españolas."
+        },
+        {
+            "uppercase": "Л",
+            "lowercase": "л",
+            "origin": "La letra El es un derivado de la griega Lambda (Λ λ).",
+            "sampa": "/l/",
+            "description": "Como la l española."
+        },
+        {
+            "uppercase": "М",
+            "lowercase": "м",
+            "origin": "La letra Em es un derivado de la griega Mu (Μ μ).",
+            "sampa": "/m/",
+            "description": "Como la m española."
+        },
+        {
+            "uppercase": "Н",
+            "lowercase": "н",
+            "origin": "La letra Em es un derivado de la griega Nu (Ν ν).",
+            "sampa": "/n/",
+            "description": "Como la n española."
+        },
+        {
+            "uppercase": "O",
+            "lowercase": "o",
+            "origin": "La letra O es un derivado de la griega Omicron (Ο ο).",
+            "sampa": "/o/",
+            "description": "Como la o española."
+        },
+        {
+            "uppercase": "П",
+            "lowercase": "п",
+            "origin": "La letra Pe es un derivado de la griega Pi (Π π).",
+            "sampa": "/p/",
+            "description": "Como la p española."
+        },
+        {
+            "uppercase": "Р",
+            "lowercase": "р",
+            "origin": "La letra Er es un derivado de la griega Rho (Ρ ρ).",
+            "sampa": "/r/",
+            "description": "Como la r española."
+        },
+        {
+            "uppercase": "С",
+            "lowercase": "с",
+            "origin": "La letra Es es un derivado de una variente de Sigma griega.",
+            "sampa": "/s/",
+            "description": "Como la s española."
+        },
+        {
+            "uppercase": "Т",
+            "lowercase": "т",
+            "origin": "La letra T es es un derivado de la griega Tau (Τ τ).",
+            "sampa": "/t/",
+            "description": "Como la t española."
+        },
+        {
+            "uppercase": "У",
+            "lowercase": "у",
+            "origin": "La letra U es es un derivado de la griega Upsilon (Υ υ).",
+            "sampa": "/u/",
+            "description": "Como la u española."
+        },
+        {
+            "uppercase": "Ф",
+            "lowercase": "ф",
+            "origin": "Es un derivado de la griega Phi (Φ φ).",
+            "sampa": "/f/",
+            "description": "Como la f española."
+        },
+        {
+            "uppercase": "Х",
+            "lowercase": "х",
+            "origin": "La letra Ha es un derivado de la griega Chi (Χ χ).",
+            "sampa": "/j/",
+            "description": "Como la j española."
+        },
+        {
+            "uppercase": "Ц",
+            "lowercase": "ц",
+            "origin": "Se cree que la letra Tse es un derivado de la letra Tsade hebrea (צ).",
+            "sampa": "/ts/",
+            "description": "Como en la zz de la palabra italiana pizza."
+        },
+        {
+            "uppercase": "Ч",
+            "lowercase": "ч",
+            "origin": " - ",
+            "sampa": "/ʧ/",
+            "description": "Como la ch española."
+        },
+        {
+            "uppercase": "Ш",
+            "lowercase": "ш",
+            "origin": "Se cree que es un derivado lejano de la hebrea Shin (ש).",
+            "sampa": "/ʃ/",
+            "description": "Como en la sh de la palabra inglesa short o la ch de la palabra francesa poche."
+        },
+        {
+            "uppercase": "Щ",
+            "lowercase": "щ",
+            "origin": "Se cree Shcha que es un derivado lejano de la glaolitica Shta (Ⱋ).",
+            "sampa": "/ʃʧ/",
+            "description": "No tiene equivalencia en español, como la ść de la palabra polaca cześć."
+        },
+        {
+            "uppercase": "Ъ",
+            "lowercase": "ъ",
+            "origin": " - ",
+            "sampa": " - ",
+            "description": "Sin sonido. Indica que la consonante precedente no se palataliza."
+        },
+        {
+            "uppercase": "Ы",
+            "lowercase": "ы",
+            "origin": "Proviene de una ligadura entre las letras ъ and і.",
+            "sampa": "/ɨ/",
+            "description": "No tiene equivalencia en español, parecida a una i gutural."
+        },
+        {
+            "uppercase": "Ь",
+            "lowercase": "ь",
+            "origin": " - ",
+            "sampa": " - ",
+            "description": "Sin sonido. Indica que la consonante precedente se palataliza."
+        },
+        {
+            "uppercase": "Э",
+            "lowercase": "э",
+            "origin": "Es una variante de є, conocida en el sigle trece.",
+            "sampa": "/e/",
+            "description": "Como la e española."
+        },
+        {
+            "uppercase": "Ю",
+            "lowercase": "ю",
+            "origin": "Se cree que deriva de las letras greigas Omicrón y Iota juntas.",
+            "sampa": "/ju/",
+            "description": "Como en la palabra yugo."
+        },
+        {
+            "uppercase": "Я",
+            "lowercase": "я",
+            "origin": " - ",
+            "sampa": "/ja/",
+            "description": "Como en la palabra raya."
+        }
     ],
     "numbers": [
-        { "number": "1", "name": "оди́н", "sampa": "[adín]" }, {"number":"2","name": "два", "sampa": "[dva]"  }, {"number":"3","name": "три", "sampa": "[trí]"  },
-        { "number": "4", "name": "четы́ре", "sampa": "[chitúir'e]" }, {"number":"5","name": "пять", "sampa": "[p'at']"  }, {"number":"6","name": "шесть", "sampa": "[shest']"  },
-        { "number": "7", "name": "семь", "sampa": "[sem']" }, {"number":"8","name": "во́семь", "sampa": "[vósim']"  }, {"number":"9","name": "де́вять", "sampa": "[d'évit']"  },
+        { "number": "1", "name": "оди́н", "sampa": "[adín]" },
+        { "number": "2", "name": "два", "sampa": "[dva]" },
+        { "number": "3", "name": "три", "sampa": "[trí]" },
+        { "number": "4", "name": "четы́ре", "sampa": "[chitúir'e]" },
+        { "number": "5", "name": "пять", "sampa": "[p'at']" },
+        { "number": "6", "name": "шесть", "sampa": "[shest']" },
+        { "number": "7", "name": "семь", "sampa": "[sem']" },
+        { "number": "8", "name": "во́семь", "sampa": "[vósim']" },
+        { "number": "9", "name": "де́вять", "sampa": "[d'évit']" },
         { "number": "10", "name": "де́сять", "sampa": "[d'ésit']" }
     ]
 }

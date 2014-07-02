@@ -35,7 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\A.wav" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\B.wav" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\sound\В.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ё.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Б.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Г.wav" />
