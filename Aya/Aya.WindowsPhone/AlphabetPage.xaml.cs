@@ -110,11 +110,14 @@ namespace Aya
 
         #endregion
 
-        private void PlaySound_Click(object sender, RoutedEventArgs e)
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            Grid parent = (Grid)((Button)sender).Parent;
-            MediaElement me =(MediaElement) parent.Children.First(m => m is MediaElement);
-            me.Play();
+            
+            if (mediaElement.CurrentState != MediaElementState.Playing && mediaElement.Source != null)
+            {
+                mediaElement.Play();
+            }
         }
 
 

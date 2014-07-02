@@ -10,7 +10,7 @@ namespace Aya.Common.Converters
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            return new Uri("ms-appx:///Assets/sound/" + value.ToString() + ".wav", UriKind.Absolute);
+            return value != null ? new Uri("ms-appx:///Assets/sound/" + value.ToString() + ".wav", UriKind.Absolute) : null;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

@@ -23,6 +23,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Symbol.cs" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Alphabet.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Background.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\icons\phone-play.theme-light.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\icons\phone-play.theme-dark.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\icons\play.light.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\icons\play.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LightGray.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\MediumGray.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\DarkGray.png" />

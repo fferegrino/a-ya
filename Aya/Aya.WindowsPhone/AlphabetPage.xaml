@@ -15,6 +15,14 @@
         <converters:StringToSoundUri x:Key="uriConverter"></converters:StringToSoundUri>
         <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
     </Page.Resources>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="sonido" Icon="Play" Click="AppBarButton_Click">
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 
     <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
 
@@ -36,36 +44,29 @@
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0" DataContext="{Binding Alfabeto}">
-            <ListView ItemsSource="{Binding Symbols}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <!--
-                        <StackPanel Orientation="Horizontal">
-                            <Button Content="Sonido" Click="Button_Click"></Button>
-                            <MediaElement Source="{Binding Uppercase,Converter={StaticResource uriConverter}}"></MediaElement>
-                            <TextBlock Text="{Binding Uppercase}"></TextBlock>
+        <ListBox Grid.Row="1" DataContext="{Binding Alfabeto}" ItemsSource="{Binding Symbols}" 
+                 x:Name="alphabetItems" Background="{StaticResource PhoneBackgroundBrush}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid  Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="0">
+                            <TextBlock Foreground="{StaticResource PhoneForegroundBrush}" Margin="10,0" FontSize="25" Text="{Binding Uppercase}"></TextBlock>
+                            <TextBlock Foreground="{StaticResource PhoneForegroundBrush}" Margin="10,0" FontSize="25" Text="{Binding Lowercase}"></TextBlock>
                         </StackPanel>
-                        -->
-                        <Grid Height="80">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"></RowDefinition>
-                                <RowDefinition Height="1*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="80"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Button  Height="80" MaxWidth="80" Content="P" Margin="0" Padding="0" Grid.RowSpan="2" Click="PlaySound_Click"></Button>
-                            <MediaElement AutoPlay="False" Source="{Binding Uppercase,Converter={StaticResource uriConverter}}"></MediaElement>
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="1">
-                                <TextBlock Margin="10,0" FontSize="25" Text="{Binding Uppercase}"></TextBlock>
-                                <TextBlock Margin="10,0" FontSize="25" Text="{Binding Lowercase}"></TextBlock>
-                            </StackPanel>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <MediaElement AutoPlay="False" x:Name="mediaElement" 
+            DataContext="{Binding SelectedItem, ElementName=alphabetItems}"
+                      Source="{Binding Uppercase,Converter={StaticResource uriConverter}}"></MediaElement>
     </Grid>
 </Page>
