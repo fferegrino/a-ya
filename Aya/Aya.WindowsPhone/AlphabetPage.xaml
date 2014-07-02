@@ -46,6 +46,13 @@
         <!--TODO: Content should be placed within the following grid-->
         <ListBox Grid.Row="1" DataContext="{Binding Alfabeto}" ItemsSource="{Binding Symbols}" 
                  x:Name="alphabetItems" Background="{StaticResource PhoneBackgroundBrush}">
+            <ListBox.Resources>
+                <Style TargetType="TextBlock" x:Key="FirstLine">
+                    <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"></Setter>
+                    <Setter Property="Margin" Value="10,0"></Setter>
+                    <Setter Property="FontSize" Value="25"></Setter>
+                </Style>
+            </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid  Margin="10">
@@ -57,8 +64,14 @@
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="0">
-                            <TextBlock Foreground="{StaticResource PhoneForegroundBrush}" Margin="10,0" FontSize="25" Text="{Binding Uppercase}"></TextBlock>
-                            <TextBlock Foreground="{StaticResource PhoneForegroundBrush}" Margin="10,0" FontSize="25" Text="{Binding Lowercase}"></TextBlock>
+                            <TextBlock Style="{StaticResource FirstLine}" Text="{Binding Uppercase}"></TextBlock>
+                            <TextBlock Style="{StaticResource FirstLine}">-</TextBlock>
+                            <TextBlock Style="{StaticResource FirstLine}" Text="{Binding Lowercase}"></TextBlock>
+                            <TextBlock Style="{StaticResource FirstLine}">-</TextBlock>
+                            <TextBlock Style="{StaticResource FirstLine}" Text="{Binding SAMPA}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="0" Width="350" Grid.Row="1">
+                            <TextBlock Padding="0" Margin="0" TextWrapping="Wrap" Text="{Binding Description}" Foreground="{StaticResource PhoneForegroundBrush}"></TextBlock>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

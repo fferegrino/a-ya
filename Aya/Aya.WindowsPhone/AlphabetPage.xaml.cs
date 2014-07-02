@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -111,12 +112,17 @@ namespace Aya
         #endregion
 
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             
             if (mediaElement.CurrentState != MediaElementState.Playing && mediaElement.Source != null)
             {
                 mediaElement.Play();
+            }else if(alphabetItems.SelectedIndex < 0){
+                MessageDialog md = new MessageDialog("Elige una letra antes, por favor");
+                bool? result;
+                md.Commands.Add(new UICommand("Aceptar", new UICommandInvokedHandler((cmd) => result = true)));
+                await md.ShowAsync();
             }
         }
 
