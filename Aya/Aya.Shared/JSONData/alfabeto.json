@@ -1,7 +1,7 @@
 ﻿{
-    "title": "El alfabeto crílico",
-    "subtitle": "El alfabeto que se usa es el crílico",
-    "description": "Es una variante del alfabeto cirílico. Desde el año 1918 (oficialmente desde 1942) consta de 33 letras.\nFue desarrollado en Bulgaria. Desde allí fue introducido en la Rus de Kiev, estado medieval de los eslavos del este. Esta introducción fue simultánea a su conversión al cristianismo en 988 d. C. o, si ciertos restos arqueológicos están correctamente datados, en una fecha ligeramente anterior.",
+    "title": "El alfabeto ruso",
+    "subtitle": "Se usa una variante del alfabeto crílico",
+    "description": "Desde el año 1918 (oficialmente desde 1942) consta de 33 letras.\nFue desarrollado en Bulgaria. Desde allí fue introducido en la Rus de Kiev, estado medieval de los eslavos del este. Esta introducción fue simultánea a su conversión al cristianismo en 988 d. C. o, si ciertos restos arqueológicos están correctamente datados, en una fecha ligeramente anterior.",
     "symbols": [
         {
             "uppercase": "A",
@@ -245,6 +245,24 @@
         { "number": "7", "name": "семь", "sampa": "[sem']" },
         { "number": "8", "name": "во́семь", "sampa": "[vósim']" },
         { "number": "9", "name": "де́вять", "sampa": "[d'évit']" },
-        { "number": "10", "name": "де́сять", "sampa": "[d'ésit']" }
+        { "number": "10", "name": "де́сять", "sampa": "[d'ésit']" },
+        { "number": "11", "name": "оди́ннадцать", "sampa": "[adínatset]" },
+        { "number": "12", "name": "двена́дцать", "sampa": "[dvyenátset]" },
+        { "number": "13", "name": "трина́дцать", "sampa": "[trinátset]" },
+        { "number": "14", "name": "четы́рнадцать", "sampa": "[chyetýrnatset]" },
+        { "number": "15", "name": "пятна́дцать", "sampa": "[pyetnátset]" },
+        { "number": "16", "name": "шестна́дцать", "sampa": "[shesnátset]" },
+        { "number": "17", "name": "семна́дцать", "sampa": "[syemnátset]" },
+        { "number": "18", "name": "восемна́дцать", "sampa": "[vasyemnátset]" },
+        { "number": "19", "name": "девятна́дцать", "sampa": "[dyevyetnátset]" },
+        { "number": "20", "name": "два́дцать", "sampa": "[dvátset]" },
+        { "number": "30", "name": "три́дцать", "sampa": "[trítset]" },
+        { "number": "40", "name": "со́рок", "sampa": "[sórak]" },
+        { "number": "50", "name": "пятьдеся́т", "sampa": "[pyetdyesyát]" },
+        { "number": "60", "name": "шестьдеся́т", "sampa": "[shesdyesyát]" },
+        { "number": "70", "name": "се́мьдесят", "sampa": "[syémdyesyat]" },
+        { "number": "80", "name": "во́семьдесят", "sampa": "[vósyemdyesyat]" },
+        { "number": "90", "name": "девяно́сто", "sampa": "[dyevyenósta]" },
+        { "number": "100", "name": "сто́", "sampa": "[sto]" }
     ]
 }
