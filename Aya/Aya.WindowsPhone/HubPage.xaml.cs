@@ -80,6 +80,7 @@ namespace Aya
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             this.DefaultViewModel["Alfabeto"] = await DataSource.GetAlphabetAsync();
+            this.DefaultViewModel["Recursos"] = await DataSource.GetResourcesAsync();
         }
 
         /// <summary>

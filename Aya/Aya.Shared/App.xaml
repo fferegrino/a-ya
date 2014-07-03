@@ -3,4 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Aya">
+    
+    <Application.Resources>
+        <x:String x:Key="aboutHeader">Acerca de</x:String>
+        <x:String x:Key="aboutText">Hola</x:String>
+    </Application.Resources>
 </Application>

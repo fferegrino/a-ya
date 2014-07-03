@@ -28,6 +28,26 @@ namespace Aya
     {
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
+        
+#endif
+#if WINDOWS_APP
+        protected override void OnWindowCreated(WindowCreatedEventArgs args)
+        {
+            Windows.UI.ApplicationSettings.SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
+        }
+        private void OnCommandsRequested(Windows.UI.ApplicationSettings.SettingsPane sender, Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs args)
+        {
+
+            args.Request.ApplicationCommands.Add(new Windows.UI.ApplicationSettings.SettingsCommand(
+                this.Resources["aboutHeader"].ToString(), this.Resources["aboutHeader"].ToString(), (handler) => ShowAboutFlyout()));
+        }
+
+        public void ShowAboutFlyout()
+        {
+            Aya.Flyouts.AboutFlyout CustomSettingFlyout = new Aya.Flyouts.AboutFlyout();
+            CustomSettingFlyout.Show();
+        }
+
 #endif
 
         /// <summary>
@@ -48,12 +68,7 @@ namespace Aya
         /// <param name="e">Details about the launch request and process.</param>
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
-//#if DEBUG
-//            if (System.Diagnostics.Debugger.IsAttached)
-//            {
-//                this.DebugSettings.EnableFrameRateCounter = true;
-//            }
-//#endif
+
 
             Frame rootFrame = Window.Current.Content as Frame;
 

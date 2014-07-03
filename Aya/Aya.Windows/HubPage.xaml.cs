@@ -67,6 +67,7 @@ namespace Aya
             //var sampleDataGroup = await DataSource.GetGroupAsync("Group-4");
             //this.DefaultViewModel["Section3Items"] = sampleDataGroup;
             this.DefaultViewModel["Alfabeto"] = await DataSource.GetAlphabetAsync();
+            this.DefaultViewModel["Recursos"] = await DataSource.GetResourcesAsync();
         }
 
         /// <summary>

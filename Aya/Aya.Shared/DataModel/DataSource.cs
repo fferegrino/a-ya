@@ -88,6 +88,7 @@ namespace Aya.DataModel
 
         private static DataSource _sampleDataSource = new DataSource();
         private static Alphabet _alfabeto;
+        private static List<Resource> _resources;
         public static async Task<Alphabet> GetAlphabetAsync()
         {
             if (_alfabeto == null)
@@ -97,14 +98,31 @@ namespace Aya.DataModel
             return _alfabeto;
         }
 
+        public static async Task<List<Resource>> GetResourcesAsync()
+        {
+            if (_resources == null)
+            {
+                await _sampleDataSource.GetDataAsync();
+            }
+            return _resources;
+        }
+
         private async Task GetDataAsync()
         {
+            Uri uriAlfabeto = new Uri("ms-appx:///JSONData/idioma.json");
+            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(uriAlfabeto);
+            string jsonText = await FileIO.ReadTextAsync(file);
+            JsonObject jObject = JsonObject.Parse(jsonText);
             #region Alfabeto
-            Uri uriAlfabeto = new Uri("ms-appx:///JSONData/alfabeto.json");
-
-            StorageFile fileA = await StorageFile.GetFileFromApplicationUriAsync(uriAlfabeto);
-            string jsonTextA = await FileIO.ReadTextAsync(fileA);
-            _alfabeto = Alphabet.FromString(jsonTextA);
+            _alfabeto = Alphabet.FromJsonObject(jObject["alphabet"].GetObject());
+            #endregion
+            #region Recursos
+            _resources = new List<Resource>();
+            JsonArray resourcesArray = jObject["resources"].GetArray();
+            foreach (JsonValue jval in resourcesArray)
+            {
+                _resources.Add(Resource.FromJsonObject(jval.GetObject()));
+            }
             #endregion
         }
 

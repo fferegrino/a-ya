@@ -78,7 +78,7 @@
                     <StackPanel>
                         <TextBlock Text="{Binding Subtitle}" FontSize="25" TextWrapping="Wrap"></TextBlock>
                         <TextBlock Text="{Binding Description}" FontSize="20" TextWrapping="Wrap"></TextBlock>
-                        <TextBlock Text="Ver las letras >" FontSize="30" Tapped="TextBlock_Tapped"></TextBlock>
+                        <TextBlock Margin="0,10" Text="Ver las letras >" FontSize="30" Tapped="TextBlock_Tapped"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
@@ -103,82 +103,20 @@
                     </ListView>
                 </DataTemplate>
             </HubSection>
-            <!-- HubSection x:Uid="HubSection2" Header="SECTION 2" Width="Auto"
-                         DataContext="{Binding Groups[0]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+            <HubSection Header="RECURSOS">
                 <DataTemplate>
-                    <GridView
-                        Margin="0,9.5,0,0"
-                        ItemsSource="{Binding Items}"
-                        AutomationProperties.AutomationId="ItemGridView"
-                        AutomationProperties.Name="Items In Group"
-                        ItemTemplate="{StaticResource Standard200x180TileItemTemplate}"
-                        SelectionMode="None"
-                        IsItemClickEnabled="True"
-                        ItemClick="ItemView_ItemClick"
-                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
-                        <GridView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <ItemsWrapGrid />
-                            </ItemsPanelTemplate>
-                        </GridView.ItemsPanel>
-                    </GridView>
-                </DataTemplate>
-            </>
-
-            <HubSection x:Uid="HubSection3" Header="SECTION 3"
-                        DataContext="{Binding Groups[1]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
-                <DataTemplate>
-                    <ListView 
-                        AutomationProperties.AutomationId="ItemListViewSection3"
-                        AutomationProperties.Name="Items In Group"
-                        SelectionMode="None"
-                        IsItemClickEnabled="True"
-                        ItemsSource="{Binding Items}"
-                        ItemTemplate="{StaticResource StandardTripleLineItemTemplate}"
-                        ItemClick="ItemView_ItemClick"
-                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
-                    </ListView>
+                    <StackPanel>
+                        <TextBlock TextWrapping="Wrap" FontSize="20" Text="Para seguir aprendiendo puedes visitar algunos de los enlaces siguientes, de ellos extraje alguna de la información que están en esta aplicación"></TextBlock>
+                        <ListView ItemsSource="{Binding Recursos}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <HyperlinkButton NavigateUri="{Binding Url}" Content="{Binding Name}"></HyperlinkButton>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
                 </DataTemplate>
             </HubSection>
-
-            <HubSection x:Uid="HubSection4" Header="SECTION 4"
-                        DataContext="{Binding Groups[2]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
-                <DataTemplate>
-                    <ListView 
-                        AutomationProperties.AutomationId="ItemListViewSection4"
-                        AutomationProperties.Name="Items In Group"
-                        SelectionMode="None"
-                        IsItemClickEnabled="True"
-                        ItemsSource="{Binding Items}"
-                        ItemClick="ItemView_ItemClick"
-                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Margin="0,0,0,19">
-                                    <TextBlock Text="{Binding Title}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
-                                    <TextBlock Text="{Binding Subtitle}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </DataTemplate>
-            </HubSection>
-
-            <HubSection x:Uid="HubSection5" Header="SECTION 5"
-                        DataContext="{Binding Groups[3]}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
-                <DataTemplate>
-                    <ListView 
-                        AutomationProperties.AutomationId="ItemListViewSection5"
-                        AutomationProperties.Name="Items In Group"
-                        SelectionMode="None"
-                        IsItemClickEnabled="True"
-                        ItemsSource="{Binding Items}"
-                        ItemTemplate="{StaticResource StandardDoubleLineItemTemplate}"
-                        ItemClick="ItemView_ItemClick"
-                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
-                    </ListView>
-                </DataTemplate>
-            </HubSection -->
         </Hub>
     </Grid>
 </Page>

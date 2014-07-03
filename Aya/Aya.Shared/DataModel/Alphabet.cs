@@ -39,14 +39,13 @@ namespace Aya.DataModel
         public ObservableCollection<Number> Numbers { get; private set; }
         public ObservableCollection<Number> NumbersDisplay { get; private set; }
 
-        public static Alphabet FromString(string jsonText)
+        public static Alphabet FromJsonObject(JsonObject jObject)
         {
-            JsonObject jsonObjectA = JsonObject.Parse(jsonText);
-            Alphabet _alfabeto = new Alphabet(jsonObjectA["title"].GetString()
-                , jsonObjectA["subtitle"].GetString()
-                , jsonObjectA["description"].GetString());
+            Alphabet _alfabeto = new Alphabet(jObject["title"].GetString()
+                , jObject["subtitle"].GetString()
+                , jObject["description"].GetString());
 
-            JsonArray simbolos = jsonObjectA["symbols"].GetArray();
+            JsonArray simbolos = jObject["symbols"].GetArray();
             foreach (JsonValue simbolo in simbolos)
             {
                 JsonObject simb = simbolo.GetObject();
@@ -60,7 +59,7 @@ namespace Aya.DataModel
                 });
             }
 
-            JsonArray numeros = jsonObjectA["numbers"].GetArray();
+            JsonArray numeros = jObject["numbers"].GetArray();
             int i = 8;
             foreach (JsonValue numero in numeros)
             {
@@ -74,6 +73,13 @@ namespace Aya.DataModel
                 }, --i > 0);
             }
             return _alfabeto;
+
+    }
+
+        public static Alphabet FromString(string jsonText)
+        {
+            JsonObject jObject = JsonObject.Parse(jsonText);
+            return FromJsonObject(jObject["alphabet"].GetObject());
         }
     }
 }

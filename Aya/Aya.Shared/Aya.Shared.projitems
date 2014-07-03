@@ -20,7 +20,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Alphabet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\DesignerDataContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Number.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Resource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Symbol.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Flyouts\AboutFlyout.xaml.cs">
+      <DependentUpon>AboutFlyout.xaml</DependentUpon>
+    </Compile>
     <Content Include="$(MSBuildThisFileDirectory)Assets\Alphabet.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Background.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\icons\phone-play.theme-light.png" />
@@ -67,7 +71,13 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Э.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ю.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Я.wav" />
-    <Content Include="$(MSBuildThisFileDirectory)JSONData\alfabeto.json" />
+    <Content Include="$(MSBuildThisFileDirectory)JSONData\idioma.json" />
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\es\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Flyouts\AboutFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>
