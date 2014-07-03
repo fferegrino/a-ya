@@ -84,8 +84,8 @@
             </HubSection>
             <HubSection x:Uid="HubSection1" Header="LOS NÚMEROS"  DataContext="{Binding Alfabeto}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
-                    <ListView
-                        ItemsSource="{Binding Numbers}">
+                    <ListView IsItemClickEnabled="True"
+                        ItemsSource="{Binding Numbers}" ItemClick="ListView_ItemClick">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Margin="5">

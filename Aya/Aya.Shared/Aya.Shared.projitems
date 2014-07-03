@@ -68,7 +68,6 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ю.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Я.wav" />
     <Content Include="$(MSBuildThisFileDirectory)JSONData\alfabeto.json" />
-    <Content Include="$(MSBuildThisFileDirectory)JSONData\SampleData.json" />
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\es\Resources.resw" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="Aya.NumbersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Aya"
+	xmlns:data="using:Aya.DataModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="APRENDE RUSO" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="los números" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="1"  DataContext="{Binding Alfabeto}"  Background="{StaticResource PhoneBackgroundBrush}" ItemsSource="{Binding Numbers}">
+            <ListBox.Resources>
+                <Style TargetType="TextBlock" x:Key="FirstLine">
+                    <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"></Setter>
+                    <Setter Property="Margin" Value="10,0"></Setter>
+                    <Setter Property="FontSize" Value="25"></Setter>
+                </Style>
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Border>
+                                <TextBlock Style="{StaticResource FirstLine}" Text="{Binding NumberString}"></TextBlock>
+                            </Border>
+                            <Border>
+                                <TextBlock Style="{StaticResource FirstLine}" Text="{Binding Name}"></TextBlock>
+                            </Border>
+                        </StackPanel>
+                        <Border>
+                            <TextBlock Style="{StaticResource FirstLine}" Text="{Binding SAMPA}"></TextBlock>
+                        </Border>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>
