@@ -113,12 +113,11 @@
             Grid.Row="0"
             Grid.RowSpan="2"
             Padding="10,0,10,0"
-            Background="Black"
             DataContext="{Binding SelectedItem, ElementName=itemListView}"
 			d:DataContext="{Binding Source={StaticResource ddContext}}"
             HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
             ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.VerticalScrollMode="Enabled"
-            ScrollViewer.ZoomMode="Disabled" Margin="0,0,0,0">
+            ScrollViewer.ZoomMode="Disabled" Margin="0,0,0,0" Background="#FF141414">
 
             <StackPanel x:Name="itemDetailGrid" Margin="0,140,0,0" d:DataContext="{Binding Alfabeto.Numbers[0]}">
                 <TextBlock HorizontalAlignment="Center" Text="{Binding NumberString}" FontSize="250"></TextBlock>

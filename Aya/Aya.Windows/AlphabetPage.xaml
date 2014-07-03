@@ -96,15 +96,15 @@
             AutomationProperties.Name="Items"
             TabIndex="1"
             Grid.Row="1"
-            Margin="10,0,0,0"
-            Padding="0,0,0,20"
+            Margin="0,0,0,0"
+            Padding="0,0,5,0"
             ItemsSource="{Binding Symbols}"
             IsSwipeEnabled="False"
             SelectionChanged="ItemListView_SelectionChanged"
             ItemTemplate="{StaticResource SymbolItem}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="FrameworkElement">
-                    <Setter Property="Margin" Value="0,0,40,0"/>
+                    <Setter Property="Margin" Value="0,0,20,0"/>
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
@@ -118,7 +118,7 @@
             Grid.Row="0"
             Grid.RowSpan="2"
             Padding="10,0,10,0"
-            Background="Black"
+            Background="#FF141414"
             DataContext="{Binding SelectedItem, ElementName=itemListView}"
 			d:DataContext="{Binding Source={StaticResource ddContext}}"
             HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
@@ -144,15 +144,15 @@
                 <TextBlock x:Name="itemUppercase" Grid.Column="0" Grid.Row="1" Text="{Binding Uppercase}" Style="{StaticResource SymbolStyle}"/>
                 <TextBlock x:Name="itemLowercase" Grid.Column="1" Grid.Row="1" Text="{Binding Lowercase}" Style="{StaticResource SymbolStyle}"/>
 
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Orígen" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="IPA" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Text="Orígen" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="IPA" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Text="{Binding SAMPA}" FontSize="70"></TextBlock>
-                <TextBlock Grid.Row="3" Margin="0,0,0,0" Text="{Binding Origin}" Style="{StaticResource NormalText}"/>
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" Text="{Binding Origin}" Style="{StaticResource NormalText}"/>
 
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Descripción" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-                <TextBlock Grid.Row="4" Grid.Column="1" Text="Sonido" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-                <TextBlock Grid.Row="5" Margin="0,0,0,0" Text="{Binding Description}" Style="{StaticResource NormalText}"/>
-                <Button Grid.Row="5" Grid.Column="1" Content="Play" Click="Button_Click"></Button>
+                <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Text="Descripción" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Text="Sonido" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
+                <TextBlock Grid.Row="5" Margin="0,0,0,0" HorizontalAlignment="Center" Text="{Binding Description}" Style="{StaticResource NormalText}"/>
+                <Button Grid.Row="5" HorizontalAlignment="Center" Grid.Column="1" Content="Play" Click="Button_Click"></Button>
                 <MediaElement AutoPlay="False" x:Name="soundPlayer" Grid.Row="5" Grid.Column="1" Source="{Binding Uppercase,Converter={StaticResource uriConverter}}"></MediaElement>
             </Grid>
         </ScrollViewer>
@@ -174,7 +174,7 @@
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView" Storyboard.TargetProperty="Padding">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="20,0,20,60"/>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,0"/>
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
