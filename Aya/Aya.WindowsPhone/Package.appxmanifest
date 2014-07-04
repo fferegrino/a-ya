@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="824ac554-674b-45f4-9d1a-54a6d20c02f9" Publisher="CN=Antonio" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="824ac554-674b-45f4-9d1a-54a6d20c02f9" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="14107fferegrino.Aprenderuso" Publisher="CN=8BD20898-9E0A-4C13-AC37-E9D349AF4781" Version="1.1.0.1" />
+  <mp:PhoneIdentity PhoneProductId="e98302a0-45b9-4a03-bbb5-f589e65ab4a8" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Aya.WindowsPhone</DisplayName>
-    <PublisherDisplayName>Antonio</PublisherDisplayName>
+    <DisplayName>Aprende ruso</DisplayName>
+    <PublisherDisplayName>fferegrino</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -30,7 +30,4 @@
       </m3:VisualElements>
     </Application>
   </Applications>
-  <Capabilities>
-    <Capability Name="internetClientServer" />
-  </Capabilities>
 </Package>
