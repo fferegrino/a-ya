@@ -11,7 +11,7 @@
 
 
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar ClosedDisplayMode="Minimal">
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="{StaticResource aboutHeader}" Click="AboutClick">
                 </AppBarButton>
