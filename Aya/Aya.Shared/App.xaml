@@ -5,7 +5,9 @@
     xmlns:local="using:Aya">
     
     <Application.Resources>
+        <x:String x:Key="appName">Aprende ruso</x:String>
+        
         <x:String x:Key="aboutHeader">Acerca de</x:String>
-        <x:String x:Key="aboutText">Hola</x:String>
+        <x:String x:Key="aboutText">Soy Antonio Feregrino Bolaños, desarrollador mexicano interesado en el aprendizaje del idioma ruso.</x:String>
     </Application.Resources>
 </Application>

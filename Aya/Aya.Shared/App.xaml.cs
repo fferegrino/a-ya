@@ -37,7 +37,6 @@ namespace Aya
         }
         private void OnCommandsRequested(Windows.UI.ApplicationSettings.SettingsPane sender, Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs args)
         {
-
             args.Request.ApplicationCommands.Add(new Windows.UI.ApplicationSettings.SettingsCommand(
                 this.Resources["aboutHeader"].ToString(), this.Resources["aboutHeader"].ToString(), (handler) => ShowAboutFlyout()));
         }

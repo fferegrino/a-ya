@@ -9,8 +9,17 @@
     xmlns:data="using:Aya.DataModel"
     mc:Ignorable="d">
 
-    <Page.Resources>
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="{StaticResource aboutHeader}" Click="AboutClick">
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">

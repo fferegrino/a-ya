@@ -18,12 +18,9 @@
         <!-- Content Section 1-->
         <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
 
-            <!-- Section 1 header -->
-            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Lorem ipsum" />
-
-            <!-- Section 1 body -->
-            <TextBlock Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,25" TextWrapping="Wrap" Text="{StaticResource aboutText}"></TextBlock>
-
+            
+            <TextBlock FontSize="16" Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,25" TextWrapping="Wrap" Text="{StaticResource aboutText}"></TextBlock>
+            <HyperlinkButton NavigateUri="ms-windows-store:Publisher?name=fferegrino" Content="Visita mis otras apps"></HyperlinkButton>
         </StackPanel>
 
         <!-- Define more Content Sections below as necessary -->
