@@ -10,9 +10,6 @@
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.Resources>
-        <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
-    </Page.Resources>
 
     <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
 

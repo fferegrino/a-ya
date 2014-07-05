@@ -5,16 +5,12 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Aya"
-	xmlns:data="using:Aya.DataModel"
-    xmlns:common="using:Aya.Common"
     xmlns:converters="using:Aya.Common.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <converters:StringToSoundUri x:Key="uriConverter"></converters:StringToSoundUri>
-        <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
         <Style x:Key="SymbolStyle" BasedOn="{StaticResource TitleTextBlockStyle}" TargetType="TextBlock">
             <Setter Property="FontSize" Value="60"></Setter>
             <Setter Property="Margin" Value="0, 0,0,15"></Setter>
@@ -26,10 +22,6 @@
             <Setter Property="FontFamily" Value="Segoe UI Light"></Setter>
             <Setter Property="FontSize" Value="15"></Setter>
         </Style>
-        <!-- Collection of items displayed by this page -->
-        <CollectionViewSource 
-        x:Name="itemsViewSource"
-        Source="{Binding Alfabeto.Symbols}"/>
         <DataTemplate x:Key="SymbolItem">
             <Grid Margin="10" Height="80" >
                 <Grid.ColumnDefinitions>
@@ -53,11 +45,6 @@
         </DataTemplate>
     </Page.Resources>
 
-    <!--
-        This grid acts as a root panel for the page that defines two rows:
-        * Row 0 contains the back button and page title
-        * Row 1 contains the rest of the page layout
-    -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  d:DataContext="{Binding Source={StaticResource ddContext}}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -72,8 +59,7 @@
             <ColumnDefinition x:Name="primaryColumn" Width="550"/>
             <ColumnDefinition x:Name="secondaryColumn" Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <!-- Back button and page title -->
+        
         <Grid x:Name="titlePanel" DataContext="{Binding Alfabeto}" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
@@ -88,8 +74,7 @@
             <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,0,40"/>
         </Grid>
-
-        <!-- Vertical scrolling item list -->
+        
         <ListView DataContext="{Binding Alfabeto}"
             x:Name="itemListView"
             AutomationProperties.AutomationId="ItemsListView"
@@ -108,14 +93,11 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-
-
-        <!-- Details for selected item -->
+        
         <ScrollViewer
             x:Name="itemDetail"
             AutomationProperties.AutomationId="ItemDetailScrollViewer"
             Grid.Column="1"
-            Grid.Row="0"
             Grid.RowSpan="2"
             Padding="10,0,10,0"
             Background="#FF141414"
@@ -158,8 +140,6 @@
         </ScrollViewer>
 
         <VisualStateManager.VisualStateGroups>
-
-            <!-- Visual states reflect the application's view state -->
             <VisualStateGroup x:Name="ViewStates">
                 <VisualState x:Name="PrimaryView" />
                 <VisualState x:Name="SinglePane">
@@ -178,13 +158,6 @@
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
-                <!--
-                    When an item is selected and only one pane is shown the details display requires more extensive changes:
-                     * Hide the master list and the column it was in
-                     * Move item details down a row to make room for the title
-                     * Move the title directly above the details
-                     * Adjust padding for details
-                 -->
                 <VisualState x:Name="SinglePane_Detail">
                     <Storyboard>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="primaryColumn" Storyboard.TargetProperty="Width">

@@ -5,14 +5,12 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Aya"
-	xmlns:data="using:Aya.DataModel"
     xmlns:common="using:Aya.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
         <Style x:Key="SymbolStyle" BasedOn="{StaticResource TitleTextBlockStyle}" TargetType="TextBlock">
             <Setter Property="FontSize" Value="40"></Setter>
             <Setter Property="Margin" Value="0, 0,0,15"></Setter>

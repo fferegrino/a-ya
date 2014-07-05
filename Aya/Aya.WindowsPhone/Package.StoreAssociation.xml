@@ -201,5 +201,11 @@
     <MainPackageIdentityName>14107fferegrino.RecetApprio</MainPackageIdentityName>
     <MainPackageIdentityName>14107fferegrino.RutAppDF</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=b01c6864-d649-4471-9afa-2d25549fd787" />
+  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=b01c6864-d649-4471-9afa-2d25549fd787">
+    <PackageInfo>
+      <OsMinVersion>6.3.0.0</OsMinVersion>
+      <PackageArchitecture>neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
+    </PackageInfo>
+  </PackageInfoList>
 </StoreAssociation>

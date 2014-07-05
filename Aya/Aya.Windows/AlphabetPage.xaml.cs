@@ -95,20 +95,21 @@ namespace Aya
             {
                 // When this is a new page, select the first item automatically unless logical page
                 // navigation is being used (see the logical page navigation #region below.)
-                if (!this.UsingLogicalPageNavigation() && this.itemsViewSource.View != null)
-                {
-                    this.itemsViewSource.View.MoveCurrentToFirst();
-                }
+                //if (!this.UsingLogicalPageNavigation() && this.itemsViewSource.View != null)
+                //{
+                //    this.itemsViewSource.View.MoveCurrentToFirst();
+                //}
+                
             }
             else
             {
                 // Restore the previously saved state associated with this page
-                if (e.PageState.ContainsKey("SelectedItem") && this.itemsViewSource.View != null)
-                {
-                    // TODO: Invoke Me.itemsViewSource.View.MoveCurrentTo() with the selected
-                    //       item as specified by the value of pageState("SelectedItem")
+                //if (e.PageState.ContainsKey("SelectedItem") && this.itemsViewSource.View != null)
+                //{
+                //    // TODO: Invoke Me.itemsViewSource.View.MoveCurrentTo() with the selected
+                //    //       item as specified by the value of pageState("SelectedItem")
 
-                }
+                //}
             }
         }
 
@@ -122,12 +123,12 @@ namespace Aya
         /// serializable state.</param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
-            if (this.itemsViewSource.View != null)
-            {
-                // TODO: Derive a serializable navigation parameter and assign it to
-                //       pageState("SelectedItem")
+            //if (this.itemsViewSource.View != null)
+            //{
+            //    // TODO: Derive a serializable navigation parameter and assign it to
+            //    //       pageState("SelectedItem")
 
-            }
+            //}
         }
 
         #region Logical page navigation

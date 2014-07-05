@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
-    xmlns:data="using:Aya.DataModel"
     mc:Ignorable="d">
 
 
@@ -33,8 +32,7 @@
             <DataTemplate x:Key="HubSectionHeaderTemplate">
                 <TextBlock Margin="0,0,0,-9.5" Text="{Binding}"/>
             </DataTemplate>
-
-            <!-- Grid-appropriate item template as seen in section 2 -->
+            
             <DataTemplate x:Key="Standard200x180TileItemTemplate">
                 <Grid Margin="0,0,9.5,9.5" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
                     <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Height="138.5" Width="138.5"/>
@@ -76,7 +74,6 @@
                     </StackPanel>
                 </Grid>
             </DataTemplate>
-            <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
         </ResourceDictionary>
     </Page.Resources>
 

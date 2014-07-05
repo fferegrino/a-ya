@@ -3,8 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Aya"
-    xmlns:converters="using:Aya.Common.Converters"
-	xmlns:data="using:Aya.DataModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -12,8 +10,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <converters:StringToSoundUri x:Key="uriConverter"></converters:StringToSoundUri>
-        <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
     </Page.Resources>
     <Page.BottomAppBar>
         <CommandBar>
@@ -36,14 +32,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <!-- Title Panel -->
+        
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
             <TextBlock Text="APRENDE RUSO" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
             <TextBlock Text="alfabeto crílico" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
         </StackPanel>
-
-        <!--TODO: Content should be placed within the following grid-->
+        
         <ListBox Grid.Row="1" DataContext="{Binding Alfabeto}" ItemsSource="{Binding Symbols}" 
                  x:Name="alphabetItems" Background="{StaticResource PhoneBackgroundBrush}">
             <ListBox.Resources>
