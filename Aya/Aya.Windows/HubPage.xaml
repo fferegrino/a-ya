@@ -128,7 +128,7 @@
                         IsSwipeEnabled="false">
                             <GridView.ItemContainerStyle>
                                 <Style TargetType="GridViewItem">
-                                    <Setter Property="Width" Value="150"></Setter>
+                                    <Setter Property="Width" Value="200"></Setter>
                                 </Style>
                             </GridView.ItemContainerStyle>
                             <GridView.ItemTemplate>
