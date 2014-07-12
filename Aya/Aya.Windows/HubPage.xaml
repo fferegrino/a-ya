@@ -10,7 +10,6 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <!-- Grid-appropriate 310 by 260 pixel item template as seen in section 4 -->
         <DataTemplate x:Key="Standard310x260ItemTemplate">
             <Grid Height="250" Width="310" Margin="5,10,5,10">
                 <Grid.RowDefinitions>
@@ -26,12 +25,82 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
+        <Style x:Key="HyperLinkStyle" TargetType="HyperlinkButton">
+            <Setter Property="MinWidth" Value="0"/>
+            <Setter Property="MinHeight" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ButtonBase">
+                        <Grid Background="#FF400000" HorizontalAlignment="Left" Width="250" Height="45">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver"/>
+                                    <VisualState x:Name="Pressed"/>
+                                    <VisualState x:Name="Disabled"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unfocused"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CheckStates">
+                                    <VisualState x:Name="Checked"/>
+                                    <VisualState x:Name="Unchecked"/>
+                                    <VisualState x:Name="Indeterminate"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <TextBlock Text="{TemplateBinding Content}" Foreground="White" FontWeight="Normal" VerticalAlignment="Center" Padding="10,0,0,0" />
+                            <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1" HorizontalAlignment="Left"/>
+                            <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="PhraseGroupTemplate">
+            <Grid Height="110" Width="480" Margin="10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
+                    <Image Height="110" Width="110"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock Text="Subtitle" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="PhraseGroupTemplate1">
+            <Grid Height="110" Width="480" Margin="10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
+                    <Image Height="110" Width="110"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock Text="Subtitle" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+                            <CollectionViewSource x:Key="prasesGropued" IsSourceGrouped="True" ItemsPath="DisplayPhrases" Source="{Binding PhraseGroups}"/>
+
+
     </Page.Resources>
 
     <!--
     This grid acts as a root panel for the page.
   -->
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{StaticResource AppBackgroundBrush}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -56,9 +125,9 @@
                         VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
                 </Grid>
             </Hub.Header>
-            <HubSection Width="700" Margin="0,0,80,0">
+            <HubSection Width="600" Margin="0,0,40,0">
                 <HubSection.Background>
-                    <ImageBrush ImageSource="Assets/Background.jpg" Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="Assets/bg.png" Stretch="UniformToFill" />
                 </HubSection.Background>
             </HubSection>
             <HubSection DataContext="{Binding Alfabeto}" Tag="alphabet" IsHeaderInteractive="True" Width="500" x:Uid="Section1Header" Header="Alfabeto">
@@ -77,7 +146,6 @@
                     </Grid>
                 </DataTemplate>
             </HubSection>
-            <!--<HubSection IsHeaderInteractive="True" DataContext="{Binding Section3Items}" d:DataContext="{Binding Groups[3], Source={d:DesignData Source=../Aya.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"-->
             <HubSection IsHeaderInteractive="True" Tag="numbers" DataContext="{Binding Alfabeto}"
                         x:Uid="Section3Header" Header="Los números" Padding="40,40,40,32">
                 <DataTemplate>
@@ -100,9 +168,9 @@
                                         <ColumnDefinition Width="150"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Border Grid.RowSpan="2" Background="{StaticResource ApplicationForegroundThemeBrush}">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="{StaticResource AppBarSeparatorForegroundThemeBrush}" Text="{Binding NumberString}"></TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="{StaticResource AppBackgroundBrush}" Text="{Binding NumberString}"></TextBlock>
                                     </Border>
-                                    <TextBlock Padding="20,0,10,0" FontSize="25" VerticalAlignment="Center" Text="{Binding Name}" Grid.Column="1"></TextBlock>
+                                    <TextBlock Padding="20,0,10,0" FontSize="25" VerticalAlignment="Center" Text="{Binding Name}" Grid.Column="1" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}"></TextBlock>
                                     <TextBlock Padding="20,0,10,0" FontSize="25"  VerticalAlignment="Center" Text="{Binding SAMPA}" Grid.Column="1" Grid.Row="1"></TextBlock>
                                 </Grid>
                             </DataTemplate>
@@ -110,8 +178,33 @@
                     </GridView>
                 </DataTemplate>
             </HubSection>
+            <!--
+            <HubSection DataContext="{Binding Alfabeto}" Header="Frases comunes">
+                <DataTemplate>
+                    <GridView IsSwipeEnabled="False" SelectionMode="Single" ItemsSource="{Binding Source={StaticResource prasesGropued}}" >
+                        <GridView.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0,0,0,6" >
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Name}" Margin="0,0,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GroupStyle.HeaderTemplate>
+                            </GroupStyle>
+                        </GridView.GroupStyle>
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid GroupPadding="0,0,70,0"/>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+            -->
             <HubSection Header="Recursos" Width="400" Padding="40,40,40,32">
-
                 <DataTemplate>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -119,13 +212,13 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <TextBlock TextWrapping="Wrap" FontSize="18" Text="Para seguir aprendiendo puedes visitar algunos de los enlaces siguientes, de ellos extraje alguna de la información que están en esta aplicación">
-                            </TextBlock>
-                            <GridView Grid.Row="2"
+                        </TextBlock>
+                        <GridView Grid.Row="2"
                         ItemsSource="{Binding Recursos}"
                         AutomationProperties.AutomationId="ItemGridView"
                         AutomationProperties.Name="Items In Group"
                         SelectionMode="None"
-                        IsSwipeEnabled="false">
+                        IsSwipeEnabled="false" Margin="0">
                             <GridView.ItemContainerStyle>
                                 <Style TargetType="GridViewItem">
                                     <Setter Property="Width" Value="200"></Setter>
@@ -137,17 +230,12 @@
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="50"></RowDefinition>
                                         </Grid.RowDefinitions>
-                                        <HyperlinkButton NavigateUri="{Binding Url}" Content="{Binding Name}"></HyperlinkButton>
+                                        <HyperlinkButton NavigateUri="{Binding Url}" Content="{Binding Name}" Style="{StaticResource HyperLinkStyle}"></HyperlinkButton>
                                     </Grid>
                                 </DataTemplate>
                             </GridView.ItemTemplate>
                         </GridView>
                     </Grid>
-                    <!--
-                    <StackPanel>
-                        
-                    </StackPanel>
-                    -->
                 </DataTemplate>
             </HubSection>
         </Hub>

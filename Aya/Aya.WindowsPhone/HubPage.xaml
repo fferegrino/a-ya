@@ -10,7 +10,7 @@
 
 
     <Page.BottomAppBar>
-        <CommandBar ClosedDisplayMode="Minimal">
+        <CommandBar ClosedDisplayMode="Minimal" Background="{StaticResource AppDarkerBrush}">
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="{StaticResource aboutHeader}" Click="AboutClick">
                 </AppBarButton>
@@ -78,7 +78,7 @@
     </Page.Resources>
 
     <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
-        <Hub x:Name="Hub" x:Uid="Hub" Header="aprende ruso" Background="{ThemeResource HubBackgroundImageBrush}">
+        <Hub x:Name="Hub" x:Uid="Hub" Header="aprende ruso" Background="{StaticResource AppBackgroundBrush}">
             <HubSection x:Uid="HubSection1" Header="ALFABETO"  DataContext="{Binding Alfabeto}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
                     <StackPanel>

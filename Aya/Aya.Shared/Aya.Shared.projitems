@@ -20,6 +20,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Alphabet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\DesignerDataContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Number.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Phrase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\PhraseGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Resource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\Symbol.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />

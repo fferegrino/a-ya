@@ -22,30 +22,30 @@
             <Setter Property="FontFamily" Value="Segoe UI Light"></Setter>
             <Setter Property="FontSize" Value="15"></Setter>
         </Style>
-        <DataTemplate x:Key="SymbolItem">
-            <Grid Margin="10" Height="80" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
-                </Grid.RowDefinitions>
-                <Border Grid.Column="0" Background="#FF2D2D30">
-                    <TextBlock Text="{Binding Uppercase}" Style="{StaticResource SymbolStyle}" TextWrapping="NoWrap" />
-                </Border>
-                <Border Grid.Column="1" Background="#FF282828">
-                    <TextBlock Text="{Binding Lowercase}" Style="{StaticResource SymbolStyle}" TextWrapping="NoWrap" />
-                </Border>
-                <Border Grid.Column="2" Background="#FF232323">
-                    <TextBlock Text="{Binding SAMPA}"  Style="{StaticResource SymbolStyle}" />
-                </Border>
-            </Grid>
+        <DataTemplate x:Key="LetterDataTemplate">
+        	<Grid>
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="80"/>
+        			<ColumnDefinition Width="80"/>
+        			<ColumnDefinition Width="*"/>
+        		</Grid.ColumnDefinitions>
+        		<Grid.RowDefinitions>
+        			<RowDefinition Height="80"/>
+        		</Grid.RowDefinitions>
+        		<Border Grid.Column="0" >
+        			<TextBlock Text="{Binding Uppercase}" Style="{StaticResource SymbolStyle}" TextWrapping="NoWrap" />
+        		</Border>
+        		<Border Grid.Column="1">
+        			<TextBlock Text="{Binding Lowercase}" Style="{StaticResource SymbolStyle}" TextWrapping="NoWrap" />
+        		</Border>
+        		<Border Grid.Column="2">
+        			<TextBlock Text="{Binding SAMPA}"  Style="{StaticResource SymbolStyle}" />
+        		</Border>
+        	</Grid>
         </DataTemplate>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  d:DataContext="{Binding Source={StaticResource ddContext}}">
+    <Grid Background="{StaticResource AppBackgroundBrush}"  d:DataContext="{Binding Source={StaticResource ddContext}}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -81,33 +81,27 @@
             AutomationProperties.Name="Items"
             TabIndex="1"
             Grid.Row="1"
-            Margin="0,0,0,0"
-            Padding="0,0,5,0"
+            Margin="37,0,0,0"
+            Padding="0,0,37,0"
             ItemsSource="{Binding Symbols}"
             IsSwipeEnabled="False"
             SelectionChanged="ItemListView_SelectionChanged"
-            ItemTemplate="{StaticResource SymbolItem}">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="FrameworkElement">
-                    <Setter Property="Margin" Value="0,0,20,0"/>
-                </Style>
-            </ListView.ItemContainerStyle>
-        </ListView>
+            ItemTemplate="{StaticResource LetterDataTemplate}" ItemContainerStyle="{StaticResource ListItemStyle}"/>
         
         <ScrollViewer
             x:Name="itemDetail"
             AutomationProperties.AutomationId="ItemDetailScrollViewer"
             Grid.Column="1"
             Grid.RowSpan="2"
-            Padding="10,0,10,0"
-            Background="#FF141414"
+            Padding="10,10,10,0"
+            Background="{StaticResource AppDarkerBrush}"
             DataContext="{Binding SelectedItem, ElementName=itemListView}"
 			d:DataContext="{Binding Source={StaticResource ddContext}}"
             HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
             ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.VerticalScrollMode="Enabled"
             ScrollViewer.ZoomMode="Disabled" Margin="0,0,0,0">
 
-            <Grid x:Name="itemDetailGrid" Margin="0,140,0,0" d:DataContext="{Binding Alfabeto.Symbols[0]}">
+            <Grid x:Name="itemDetailGrid" Margin="0,140,0,0"  d:DataContext="{Binding Alfabeto.Symbols[0]}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition Height="70"></RowDefinition>
@@ -154,7 +148,7 @@
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView" Storyboard.TargetProperty="Padding">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,0"/>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,37,0"/>
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
@@ -179,7 +173,7 @@
                             <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,60"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="Padding">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="20,0,0,0"/>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,30,10,0"/>
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>

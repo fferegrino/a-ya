@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{StaticResource AppBackgroundBrush}">
 
 
     <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
@@ -30,7 +30,7 @@
             <TextBlock Text="los números" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
         </StackPanel>
 
-        <ListBox Grid.Row="1"  DataContext="{Binding Alfabeto}"  Background="{StaticResource PhoneBackgroundBrush}" ItemsSource="{Binding Numbers}">
+        <ListBox Grid.Row="1"  DataContext="{Binding Alfabeto}" ItemsSource="{Binding Numbers}">
             <ListBox.Resources>
                 <Style TargetType="TextBlock" x:Key="FirstLine">
                     <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"></Setter>
@@ -38,21 +38,17 @@
                     <Setter Property="FontSize" Value="25"></Setter>
                 </Style>
             </ListBox.Resources>
+        	<ListBox.Background>
+        		<StaticResource ResourceKey="AppBackgroundBrush"/>
+        	</ListBox.Background>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <Border>
-                                <TextBlock Style="{StaticResource FirstLine}" Text="{Binding NumberString}"></TextBlock>
-                            </Border>
-                            <Border>
+                    <StackPanel Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource FirstLine}" Text="{Binding NumberString}" FontSize="40" VerticalAlignment="Center"></TextBlock>
+                        <StackPanel >
                                 <TextBlock Style="{StaticResource FirstLine}" Text="{Binding Name}"></TextBlock>
-                            </Border>
+                            <TextBlock Style="{StaticResource FirstLine}" Text="{Binding SAMPA}" FontSize="26.667"></TextBlock>
                         </StackPanel>
-                        <Border>
-                            <TextBlock Style="{StaticResource FirstLine}" Text="{Binding SAMPA}"></TextBlock>
-                        </Border>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

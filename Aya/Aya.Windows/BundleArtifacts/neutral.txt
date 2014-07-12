@@ -1,0 +1,4 @@
+MainPackage=C:\Users\Antonio\Documents\git\a-ya\Aya\Aya.Windows\bin\Release\Aya.Windows_1.1.0.3_Bundle\Aya.Windows_1.1.0.3_AnyCPU.appx
+SymbolPackage=C:\Users\Antonio\Documents\git\a-ya\Aya\Aya.Windows\AppPackages\Aya.Windows_1.1.0.3_Test\Aya.Windows_1.1.0.3_AnyCPU.appxsym
+ResourcePack=C:\Users\Antonio\Documents\git\a-ya\Aya\Aya.Windows\bin\Release\Aya.Windows_1.1.0.3_Bundle\Aya.Windows_1.1.0.3_scale-140.appx
+ResourcePack=C:\Users\Antonio\Documents\git\a-ya\Aya\Aya.Windows\bin\Release\Aya.Windows_1.1.0.3_Bundle\Aya.Windows_1.1.0.3_scale-180.appx

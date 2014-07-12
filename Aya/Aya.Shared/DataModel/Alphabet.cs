@@ -16,6 +16,12 @@ namespace Aya.DataModel
             this.Symbols = new ObservableCollection<Symbol>();
             this.Numbers = new ObservableCollection<Number>();
             this.NumbersDisplay = new ObservableCollection<Number>();
+            this.PhraseGroups = new ObservableCollection<PhraseGroup>();
+        }
+
+        public void AddPhraseGroup(PhraseGroup p)
+        {
+            this.PhraseGroups.Add(p);
         }
 
         public void AddSymbol(Symbol s)
@@ -38,6 +44,7 @@ namespace Aya.DataModel
         public ObservableCollection<Symbol> Symbols { get; private set; }
         public ObservableCollection<Number> Numbers { get; private set; }
         public ObservableCollection<Number> NumbersDisplay { get; private set; }
+        public ObservableCollection<PhraseGroup> PhraseGroups { get; private set; }
 
         public static Alphabet FromJsonObject(JsonObject jObject)
         {

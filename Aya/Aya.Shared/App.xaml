@@ -15,5 +15,15 @@
         <data:DesignerDataContext x:Key="ddContext"></data:DesignerDataContext>
         <!-- Converters -->
         <converters:StringToSoundUri x:Key="uriConverter"></converters:StringToSoundUri>
+        <SolidColorBrush x:Key="AppBackgroundBrush" Color="#FF7E0000"/>
+        <SolidColorBrush x:Key="AppDarkerBrush" Color="#FF400000"/>
+     <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBackgroundThemeBrush" Color="#90a20000" />
+     <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush" Color="#80a20000" />
+     <SolidColorBrush x:Key="ListViewItemSelectedBackgroundThemeBrush" Color="#AAa20000" />
+     <Style x:Key="ListItemStyle" TargetType="ListViewItem">
+     	<Setter Property="Margin" Value="0,0,0,0"/>
+     	<Setter Property="Background" Value="#FF400000"/>
+     </Style>
+
     </Application.Resources>
 </Application>

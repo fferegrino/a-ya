@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Aya.DataModel
@@ -53,6 +54,20 @@ namespace Aya.DataModel
                             NumberString = "10",
                             NumberInteger = 10
                         }, i < 10);
+                    }
+                    for (int i = 0; i < 10; i++)
+                    {
+                        PhraseGroup p = new PhraseGroup();
+                        p.Phrases = new ObservableCollection<Phrase>();
+                        p.Name = "Phrase group " + i;
+                        p.DisplayPhrases = new ObservableCollection<Phrase>();
+                        for (int jj = 0; jj < 30; jj++)
+                        {
+                            p.Phrases.Add(new Phrase { Original = "Frase original" });
+                            p.DisplayPhrases.Add(p.Phrases[jj]);
+                        }
+                        
+                        aph.AddPhraseGroup(p);
                     }
                 } return aph;
             }
