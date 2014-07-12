@@ -5,7 +5,6 @@
     xmlns:local="using:Aya"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
 
 
@@ -76,10 +75,13 @@
             </DataTemplate>
         </ResourceDictionary>
     </Page.Resources>
+	<Page.DataContext>
+		<Binding Mode="OneWay" Path="HubVM" Source="{StaticResource Locator}"/>
+	</Page.DataContext>
 
-    <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
+    <Grid x:Name="LayoutRoot">
         <Hub x:Name="Hub" x:Uid="Hub" Header="aprende ruso" Background="{StaticResource AppBackgroundBrush}">
-            <HubSection x:Uid="HubSection1" Header="ALFABETO"  DataContext="{Binding Alfabeto}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+            <HubSection x:Uid="HubSection1" Header="ALFABETO"  DataContext="{Binding Language}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Subtitle}" FontSize="25" TextWrapping="Wrap"></TextBlock>
@@ -88,7 +90,7 @@
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
-            <HubSection x:Uid="HubSection1" Header="LOS NÚMEROS"  DataContext="{Binding Alfabeto}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+            <HubSection x:Uid="HubSection1" Header="LOS NÚMEROS"  DataContext="{Binding Language}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
                     <ListView IsItemClickEnabled="True"
                         ItemsSource="{Binding Numbers}" ItemClick="ListView_ItemClick">
@@ -113,7 +115,7 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock TextWrapping="Wrap" FontSize="20" Text="Para seguir aprendiendo puedes visitar algunos de los enlaces siguientes, de ellos extraje alguna de la información que están en esta aplicación"></TextBlock>
-                        <ListView ItemsSource="{Binding Recursos}">
+                        <ListView ItemsSource="{Binding Resources}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <HyperlinkButton NavigateUri="{Binding Url}" Content="{Binding Name}"></HyperlinkButton>

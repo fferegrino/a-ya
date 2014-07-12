@@ -1,5 +1,5 @@
 ﻿using Aya.Common;
-using Aya.DataModel;
+using Aya.Models;
 
 using System;
 using System.Collections.Generic;

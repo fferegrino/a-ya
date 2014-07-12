@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Aya.DataModel
+namespace Aya.Models
 {
     public class Number
     {

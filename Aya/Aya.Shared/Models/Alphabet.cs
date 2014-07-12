@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Windows.Data.Json;
 
-namespace Aya.DataModel
+namespace Aya.Models
 {
     public class Alphabet
     {

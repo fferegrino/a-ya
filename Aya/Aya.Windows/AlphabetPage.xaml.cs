@@ -1,5 +1,4 @@
 ﻿using Aya.Common;
-using Aya.DataModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -90,7 +89,6 @@ namespace Aya
         {
             // TODO: Assign a bindable group to Me.DefaultViewModel("Group")
             // TODO: Assign a collection of bindable items to Me.DefaultViewModel("Items")
-            this.DefaultViewModel["Alfabeto"] = (Alphabet)e.NavigationParameter;
             if (e.PageState == null)
             {
                 // When this is a new page, select the first item automatically unless logical page

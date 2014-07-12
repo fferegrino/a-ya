@@ -16,18 +16,20 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\StringToSoundUri.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\DataSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Alphabet.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\DesignerDataContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Number.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Phrase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\PhraseGroup.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Resource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Symbol.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Alphabet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DesignerDataContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Number.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Phrase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\PhraseGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Resource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Symbol.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HubViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelLocator.cs" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\A.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\В.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ё.wav" />

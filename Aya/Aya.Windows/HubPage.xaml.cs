@@ -12,7 +12,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Aya.DataModel;
 using Aya.Common;
 
 // The Universal Hub Application project template is documented at http://go.microsoft.com/fwlink/?LinkID=391955
@@ -66,8 +65,6 @@ namespace Aya
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             //var sampleDataGroup = await DataSource.GetGroupAsync("Group-4");
             //this.DefaultViewModel["Section3Items"] = sampleDataGroup;
-            this.DefaultViewModel["Alfabeto"] = await DataSource.GetAlphabetAsync();
-            this.DefaultViewModel["Recursos"] = await DataSource.GetResourcesAsync();
         }
 
         /// <summary>
