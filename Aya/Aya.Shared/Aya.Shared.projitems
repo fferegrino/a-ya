@@ -27,6 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CommonPhrasesViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HubViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelLocator.cs" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\A.wav" />

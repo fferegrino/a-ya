@@ -269,7 +269,7 @@
         "commonPhrasesGroup": [
             { "key": "saludos", "name": "Saludos" },
             { "key": "despedidas", "name": "Despedidas" },
-            { "key": "idiomas", "name": "Otros idiomas" },
+            { "key": "dinero", "name": "Dinero" },
             { "key": "orientacion", "name": "Pedir indicaciones" }
         ],
         "commonPhrases": {
@@ -305,38 +305,8 @@
                     "importance": 1
                 }
             ],
-            "idiomas": [
-                {
-                    "original": "Привет",
-                    "translated": "Hola",
-                    "description": "Es un saludo informal",
-                    "sampa": "pri-vyet",
-                    "importance": 1
-                },
-                {
-                    "original": "Здрaвствуйте",
-                    "translated": "Hola",
-                    "description": "Es un saludo formal",
-                    "sampa": "zdrast-vuj-tye",
-                    "importance": 1
-                }
-            ],
-            "orientacion": [
-                {
-                    "original": "Привет",
-                    "translated": "Hola",
-                    "description": "Es un saludo informal",
-                    "sampa": "pri-vyet",
-                    "importance": 1
-                },
-                {
-                    "original": "Здрaвствуйте",
-                    "translated": "Hola",
-                    "description": "Es un saludo formal",
-                    "sampa": "zdrast-vuj-tye",
-                    "importance": 1
-                }
-            ]
+            "dinero": [{"original":"Сколько это стоит?","translated":"¿Cuánto cuesta esto?","sampa":"skol-ka e-ta sto-it?","description":"Para preguntar por el precio de algo","importance":10},{"original":"Сколько это в... ?","translated":"¿Cuánto cuesta esto en...?","sampa":"skol-ka e-ta v...?","description":"Para preguntar por el precio de algo en alguna moneda en específico","importance":10},{"original":"рублях","translated":"Rublos","sampa":"ru-blyah","description":"Así es como se pronuncia rublos, para preguntar por precios","importance":9},{"original":"евро","translated":"Euros","sampa":"ye-vra","description":"Así es como se pronuncia euros, para preguntar por precios","importance":9},{"original":"долларах","translated":"Dólares","sampa":"do-la-rah","description":"Así es como se pronuncia dólares, para preguntar por precios","importance":9}],
+            "orientacion": [ { "original": "Мне нужно в", "translated": "Necesito ir a", "sampa": "mnye nuzh-na v", "description": "Debes agregar el lugar al que quieres ir al final", "importance": 5 }, { "original": "Это далеко?", "translated": "¿Está cerca?", "sampa": "e-ta da-lye-ko?", "description": "Para preguntar si algún lugar está cerca", "importance": 3 }, { "original": "Это недалеко?", "translated": "¿Está lejos?", "sampa": "e-ta nye-da-lye-ko?", "description": "Para preguntar si algún lugar está lejos", "importance": 3 }, { "original": "Какая это улица?", "translated": "¿Qué calle es esta?", "sampa": "ka-ka-ya e-ta u-li-tsa? ", "description": "Para preguntar en que calle nos encontramos", "importance": 2 } ]
         }
     },
     "resources": [

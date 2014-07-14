@@ -25,7 +25,7 @@ namespace Aya
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
+        private bool navigated = false;
         /// <summary>
         /// Gets the NavigationHelper used to aid in navigation and process lifetime management.
         /// </summary>
@@ -62,9 +62,7 @@ namespace Aya
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            //var sampleDataGroup = await DataSource.GetGroupAsync("Group-4");
-            //this.DefaultViewModel["Section3Items"] = sampleDataGroup;
+            navigated = false;
         }
 
         /// <summary>
@@ -123,5 +121,15 @@ namespace Aya
         }
 
         #endregion
+
+        private void GridViewCommonPhrases_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GridView gv = sender as GridView;
+            if (gv.SelectedItem != null && !navigated)
+            {
+                navigated = true;
+                Frame.Navigate(typeof(CommonPhrasesPage));
+            }
+        }
     }
 }

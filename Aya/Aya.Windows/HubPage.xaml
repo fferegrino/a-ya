@@ -55,6 +55,7 @@
 	<Interactivity:Interaction.Behaviors>
 		<Core:EventTriggerBehavior EventName="Loaded">
 			<Core:InvokeCommandAction Command="{Binding LoadDataCommand, Mode=OneWay}"/>
+			<Core:InvokeCommandAction Command="{Binding ClearSelectionsCommand, Mode=OneWay}"/>
 		</Core:EventTriggerBehavior>
 	</Interactivity:Interaction.Behaviors>
     <Page.DataContext>
@@ -144,7 +145,7 @@
 			</HubSection>
 			<HubSection DataContext="{Binding Language}" Header="Frases comunes" FontWeight="Bold">
 				<DataTemplate>
-					<GridView IsSwipeEnabled="False" ItemsSource="{Binding PhraseGroups}" SelectionMode="Single">
+                    <GridView IsSwipeEnabled="False" ItemsSource="{Binding PhraseGroups}" SelectionMode="Single" SelectionChanged="GridViewCommonPhrases_SelectionChanged" SelectedItem="{Binding HubVM.SelectedPhraseGroup, Mode=TwoWay, Source={StaticResource Locator}}">
 						<GridView.ItemTemplate>
 							<DataTemplate>
 								<StackPanel Margin="0" Width="230">
@@ -152,29 +153,17 @@
 										<TextBlock Text="{Binding Name}" FontWeight="Normal" 
 											Style="{StaticResource SubheaderTextBlockStyle}" Margin="0" FontSize="17" />
 									</Border>
-									<ListBox ItemsSource="{Binding DisplayPhrases}" FontSize="12">
-										<ListBox.ItemTemplate>
-											<DataTemplate>
-												<StackPanel>
-													<TextBlock Text="{Binding Translated}" />
-													<TextBlock Text="{Binding SAMPA}" />
-												</StackPanel>
-											</DataTemplate>
-										</ListBox.ItemTemplate>
-									</ListBox> 
-									<!--
-									<ListView ItemsSource="{Binding DisplayPhrases}" SelectionMode="None">
-										<ListView.ItemTemplate>
-											<DataTemplate>
-												<StackPanel>
-													<TextBlock Text="{Binding Original}" />
-													<TextBlock Text="{Binding SAMPA}" />
-												</StackPanel>
-											</DataTemplate>
-										</ListView.ItemTemplate>
-									</ListView>
-									-->
-								</StackPanel>
+                                    <ListBox ItemsSource="{Binding DisplayPhrases}" FontSize="12">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Translated}" />
+                                                    <TextBlock Text="{Binding SAMPA}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
 							</DataTemplate>
 						</GridView.ItemTemplate>
 					</GridView>

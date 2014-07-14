@@ -16,11 +16,20 @@ namespace Aya.ViewModels
             }
         }
 
+        public CommonPhrasesViewModel CommonPhrasesVM
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CommonPhrasesViewModel>();
+            }
+        }
+
 
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<HubViewModel>();
+            SimpleIoc.Default.Register<CommonPhrasesViewModel>();
         }
     }
 }
