@@ -19,6 +19,9 @@
 
         <!-- Converters -->
         <converters:StringToSoundUri x:Key="uriConverter"></converters:StringToSoundUri>
+        <converters:LowercaseConverter x:Key="lowerConverter" />
+        <converters:UppercaseConverter x:Key="upperConverter" />
+        
         <SolidColorBrush x:Key="AppBackgroundBrush" Color="#FF7E0000"/>
         <SolidColorBrush x:Key="AppDarkerBrush" Color="#FF400000"/>
         <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBackgroundThemeBrush" Color="#90a20000" />

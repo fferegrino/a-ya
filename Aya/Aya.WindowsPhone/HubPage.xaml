@@ -101,7 +101,7 @@
 			<HubSection x:Uid="HubSection1" Header="LOS NÚMEROS"  DataContext="{Binding Language}" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
 				<DataTemplate>
 					<ListView IsItemClickEnabled="True"
-						ItemsSource="{Binding Numbers}" ItemClick="ListView_ItemClick">
+						ItemsSource="{Binding NumbersDisplay}" ItemClick="ListView_ItemClick">
 						<ListView.ItemTemplate>
 							<DataTemplate>
 								<Grid Margin="5">
@@ -121,8 +121,13 @@
 			</HubSection>
 			<HubSection Header="FRASES COMUNES" DataContext="{Binding Language}"  HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
 				<DataTemplate>
-					<ListView IsItemClickEnabled="True"
-						ItemsSource="{Binding PhraseGroups}" ItemClick="ListView_ItemClick">
+					<ListView IsItemClickEnabled="False"
+						ItemsSource="{Binding PhraseGroups}" SelectedItem="{Binding HubVM.SelectedPhraseGroup, Source={StaticResource Locator}, Mode=TwoWay}">
+						<Interactivity:Interaction.Behaviors>
+							<Core:EventTriggerBehavior EventName="SelectionChanged">
+								<Core:NavigateToPageAction TargetPage="Aya.CommonPhrasesPage"/>
+							</Core:EventTriggerBehavior>
+						</Interactivity:Interaction.Behaviors>
 						<ListView.ItemTemplate>
 							<DataTemplate>
 								<Grid Margin="5">

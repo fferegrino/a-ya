@@ -29,6 +29,7 @@ namespace Aya.ViewModels
                     if (jj < 3)
                         PagePhraseGroup.DisplayPhrases.Add(PagePhraseGroup.FullPhrases[jj]);
                 }
+                SelectedPhrase = PagePhraseGroup.FullPhrases[0];
             }
 
             _loadDataCommand = new RelayCommand(() =>
@@ -44,6 +45,15 @@ namespace Aya.ViewModels
         {
             get { return _pagePhraseGroup; }
             set { _pagePhraseGroup = value; RaisePropertyChanged(); }
+        }
+
+
+        private Phrase _selectedPhrase;
+
+        public Phrase SelectedPhrase
+        {
+            get { return _selectedPhrase; }
+            set { _selectedPhrase = value; RaisePropertyChanged(); }
         }
 
         #endregion

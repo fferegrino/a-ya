@@ -86,6 +86,9 @@
     <Compile Include="AlphabetPage.xaml.cs">
       <DependentUpon>AlphabetPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommonPhrasesPage.xaml.cs">
+      <DependentUpon>CommonPhrasesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="AlphabetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CommonPhrasesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
