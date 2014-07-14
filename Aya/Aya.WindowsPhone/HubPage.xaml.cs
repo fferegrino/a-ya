@@ -77,10 +77,8 @@ namespace Aya
         /// <see cref="Frame.Navigate(Type, object)"/> when this page was initially requested and
         /// a dictionary of state preserved by this page during an earlier
         /// session.  The state will be null the first time a page is visited.</param>
-        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            this.DefaultViewModel["Alfabeto"] = await DataSource.GetAlphabetAsync();
-            this.DefaultViewModel["Recursos"] = await DataSource.GetResourcesAsync();
         }
 
         /// <summary>
@@ -156,12 +154,12 @@ namespace Aya
 
         private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AlphabetPage), this.DefaultViewModel["Alfabeto"]);
+            this.Frame.Navigate(typeof(AlphabetPage));
         }
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.Frame.Navigate(typeof(NumbersPage), this.DefaultViewModel["Alfabeto"]);
+            this.Frame.Navigate(typeof(NumbersPage));
         }
 
         private void AboutClick(object sender, RoutedEventArgs e)

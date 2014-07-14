@@ -16,9 +16,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\StringToSoundUri.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\DataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Alphabet.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\DesignerDataContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Number.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Phrase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\PhraseGroup.cs" />
@@ -63,7 +62,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Э.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Ю.wav" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\sound\Я.wav" />
-    <Content Include="$(MSBuildThisFileDirectory)JSONData\idioma.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\idioma.json" />
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\es\Resources.resw" />
   </ItemGroup>
 </Project>

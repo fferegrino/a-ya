@@ -265,14 +265,86 @@
             { "number": "80", "name": "во́семьдесят", "sampa": "[vósyemdyesyat]" },
             { "number": "90", "name": "девяно́сто", "sampa": "[dyevyenósta]" },
             { "number": "100", "name": "сто́", "sampa": "[sto]" }
-        ]
+        ],
+        "commonPhrasesGroup": [
+            { "key": "saludos", "name": "Saludos" },
+            { "key": "despedidas", "name": "Despedidas" },
+            { "key": "idiomas", "name": "Otros idiomas" },
+            { "key": "orientacion", "name": "Pedir indicaciones" }
+        ],
+        "commonPhrases": {
+            "saludos": [
+                {
+                    "original": "Привет",
+                    "translated": "Hola",
+                    "description": "Es un saludo informal",
+                    "sampa": "pri-vyet",
+                    "importance": 1
+                },
+                {
+                    "original": "Здрaвствуйте",
+                    "translated": "Hola",
+                    "description": "Es un saludo formal",
+                    "sampa": "zdrast-vuj-tye",
+                    "importance": 1
+                }
+            ],
+            "despedidas": [
+                {
+                    "original": "Покаa",
+                    "translated": "Adiós",
+                    "description": "Es una despedida informal",
+                    "sampa": "pa-ka",
+                    "importance": 1
+                },
+                {
+                    "original": "До свидaния",
+                    "translated": "Hasta luego",
+                    "description": "Esta es una despedida formal",
+                    "sampa": "da svi-da-niya",
+                    "importance": 1
+                }
+            ],
+            "idiomas": [
+                {
+                    "original": "Привет",
+                    "translated": "Hola",
+                    "description": "Es un saludo informal",
+                    "sampa": "pri-vyet",
+                    "importance": 1
+                },
+                {
+                    "original": "Здрaвствуйте",
+                    "translated": "Hola",
+                    "description": "Es un saludo formal",
+                    "sampa": "zdrast-vuj-tye",
+                    "importance": 1
+                }
+            ],
+            "orientacion": [
+                {
+                    "original": "Привет",
+                    "translated": "Hola",
+                    "description": "Es un saludo informal",
+                    "sampa": "pri-vyet",
+                    "importance": 1
+                },
+                {
+                    "original": "Здрaвствуйте",
+                    "translated": "Hola",
+                    "description": "Es un saludo formal",
+                    "sampa": "zdrast-vuj-tye",
+                    "importance": 1
+                }
+            ]
+        }
     },
     "resources": [
-        { "url": "http://blog.duopixel.com/tutoriales/guia-para-leer-ruso.html", "name": "Duopixel"},
-        { "url": "http://www.rusiamia.com/lengua_rusa/alfabeto_ruso.html", "name": "Rusia mía"},
-        { "url": "http://everydayrussianlanguage.com/es/principiantes/alfabeto-ruso/", "name": "Everyday Russian"},
-        { "url": "http://misviajesporahi.es/2011/08/como-aprender-el-elfabeto-cirilico-en-20-minutos.html", "name": "Mis viajes por ahí"},
-        { "url": "http://es.wikibooks.org/wiki/Ruso/Gram%C3%A1tica/Alfabeto_y_pronunciaci%C3%B3n", "name": "Wikilbros"},
-        { "url": "http://etimologias.dechile.net/?ciri.lico", "name": "De Chile"}
+        { "url": "http://blog.duopixel.com/tutoriales/guia-para-leer-ruso.html", "name": "Duopixel" },
+        { "url": "http://www.rusiamia.com/lengua_rusa/alfabeto_ruso.html", "name": "Rusia mía" },
+        { "url": "http://everydayrussianlanguage.com/es/principiantes/alfabeto-ruso/", "name": "Everyday Russian" },
+        { "url": "http://misviajesporahi.es/2011/08/como-aprender-el-elfabeto-cirilico-en-20-minutos.html", "name": "Mis viajes por ahí" },
+        { "url": "http://es.wikibooks.org/wiki/Ruso/Gram%C3%A1tica/Alfabeto_y_pronunciaci%C3%B3n", "name": "Wikilbros" },
+        { "url": "http://etimologias.dechile.net/?ciri.lico", "name": "De Chile" }
     ]
 }

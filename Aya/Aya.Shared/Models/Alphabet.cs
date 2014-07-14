@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Linq;
 using Windows.Data.Json;
 
 namespace Aya.Models
@@ -67,7 +68,7 @@ namespace Aya.Models
             }
 
             JsonArray numeros = jObject["numbers"].GetArray();
-            int i = 8;
+            int i = 10;
             foreach (JsonValue numero in numeros)
             {
                 JsonObject nmb = numero.GetObject();
@@ -79,9 +80,26 @@ namespace Aya.Models
                     SAMPA = nmb["sampa"].GetString()
                 }, --i > 0);
             }
+
+            JsonArray phraseGroups = jObject["commonPhrasesGroup"].GetArray();
+            JsonObject commonPhrasesGroup = jObject["commonPhrases"].GetObject();
+            foreach (JsonValue pg in phraseGroups)
+            {
+                JsonObject pgo = pg.GetObject();
+                string key = pgo["key"].GetString();
+                string name = pgo["name"].GetString();
+                PhraseGroup phraseGroup = new PhraseGroup(name);
+                JsonArray phrasesArray = commonPhrasesGroup[key].GetArray();
+                var arrau = from x in phrasesArray
+                            orderby x.GetObject()["importance"].GetNumber()
+                            select Phrase.FromJsonObject(x.GetObject());
+                phraseGroup.FullPhrases = new ObservableCollection<Phrase>(arrau);
+                phraseGroup.DisplayPhrases = new ObservableCollection<Phrase>(phraseGroup.FullPhrases.Take(5));
+                _alfabeto.AddPhraseGroup(phraseGroup);
+            }
             return _alfabeto;
 
-    }
+        }
 
         public static Alphabet FromString(string jsonText)
         {

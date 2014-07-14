@@ -1,245 +1,218 @@
 ﻿<Page
-    x:Name="pageRoot"
-    x:Class="Aya.HubPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Aya"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    x:Name="pageRoot"
+    x:Class="Aya.HubPage"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <DataTemplate x:Key="Standard310x260ItemTemplate">
-            <Grid Height="250" Width="310" Margin="5,10,5,10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Height="150">
-                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                </Border>
-                <StackPanel Grid.Row="1" Margin="0,10,0,0">
-                    <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap"/>
-                    <TextBlock Text="{Binding Description}" Style="{StaticResource BodyTextBlockStyle}" MaxHeight="60" />
-                </StackPanel>
-            </Grid>
-        </DataTemplate>
         <Style x:Key="HyperLinkStyle" TargetType="HyperlinkButton">
-            <Setter Property="MinWidth" Value="0"/>
-            <Setter Property="MinHeight" Value="0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ButtonBase">
-                        <Grid Background="#FF400000" HorizontalAlignment="Left" Width="250" Height="45">
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal"/>
-                                    <VisualState x:Name="PointerOver"/>
-                                    <VisualState x:Name="Pressed"/>
-                                    <VisualState x:Name="Disabled"/>
-                                </VisualStateGroup>
-                                <VisualStateGroup x:Name="FocusStates">
-                                    <VisualState x:Name="Focused">
-                                        <Storyboard>
-                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
-                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="Unfocused"/>
-                                </VisualStateGroup>
-                                <VisualStateGroup x:Name="CheckStates">
-                                    <VisualState x:Name="Checked"/>
-                                    <VisualState x:Name="Unchecked"/>
-                                    <VisualState x:Name="Indeterminate"/>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                            <TextBlock Text="{TemplateBinding Content}" Foreground="White" FontWeight="Normal" VerticalAlignment="Center" Padding="10,0,0,0" />
-                            <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1" HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1" HorizontalAlignment="Left"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+        	<Setter Property="MinWidth" Value="0"/>
+        	<Setter Property="MinHeight" Value="0"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="ButtonBase">
+        				<Grid Background="#FF400000" HorizontalAlignment="Left" Width="250" Height="45">
+        					<VisualStateManager.VisualStateGroups>
+        						<VisualStateGroup x:Name="CommonStates">
+        							<VisualState x:Name="Normal"/>
+        							<VisualState x:Name="PointerOver"/>
+        							<VisualState x:Name="Pressed"/>
+        							<VisualState x:Name="Disabled"/>
+        						</VisualStateGroup>
+        						<VisualStateGroup x:Name="FocusStates">
+        							<VisualState x:Name="Focused">
+        								<Storyboard>
+        									<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
+        									<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
+        								</Storyboard>
+        							</VisualState>
+        							<VisualState x:Name="Unfocused"/>
+        						</VisualStateGroup>
+        						<VisualStateGroup x:Name="CheckStates">
+        							<VisualState x:Name="Checked"/>
+        							<VisualState x:Name="Unchecked"/>
+        							<VisualState x:Name="Indeterminate"/>
+        						</VisualStateGroup>
+        					</VisualStateManager.VisualStateGroups>
+        					<TextBlock Text="{TemplateBinding Content}" Foreground="White" FontWeight="Normal" VerticalAlignment="Center" Padding="10,0,0,0" />
+        					<Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1" HorizontalAlignment="Left"/>
+        					<Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1" HorizontalAlignment="Left"/>
+        				</Grid>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
         </Style>
-        <DataTemplate x:Key="PhraseGroupTemplate">
-            <Grid Height="110" Width="480" Margin="10" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
-                    <Image Height="110" Width="110"/>
-                </Border>
-                <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                    <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextBlockStyle}"/>
-                    <TextBlock Text="Subtitle" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
-                </StackPanel>
-            </Grid>
-        </DataTemplate>
-        <DataTemplate x:Key="PhraseGroupTemplate1">
-            <Grid Height="110" Width="480" Margin="10" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
-                    <Image Height="110" Width="110"/>
-                </Border>
-                <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                    <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextBlockStyle}"/>
-                    <TextBlock Text="Subtitle" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
-                </StackPanel>
-            </Grid>
-        </DataTemplate>
-                            <CollectionViewSource x:Key="prasesGropued" IsSourceGrouped="True" ItemsPath="DisplayPhrases" Source="{Binding PhraseGroups}"/>
 
+
+        <CollectionViewSource x:Key="GroupedPhrases" IsSourceGrouped="True" ItemsPath="FullPhrases" Source="{Binding PhraseGroups}"/>
 
     </Page.Resources>
-	<Page.DataContext>
-		<Binding Mode="OneWay" Path="HubVM" Source="{StaticResource Locator}"/>
-	</Page.DataContext>
+	<Interactivity:Interaction.Behaviors>
+		<Core:EventTriggerBehavior EventName="Loaded">
+			<Core:InvokeCommandAction Command="{Binding LoadDataCommand, Mode=OneWay}"/>
+		</Core:EventTriggerBehavior>
+	</Interactivity:Interaction.Behaviors>
+    <Page.DataContext>
+        <Binding Mode="OneWay" Path="HubVM" Source="{StaticResource Locator}"/>
+    </Page.DataContext>
 
     <!--
     This grid acts as a root panel for the page.
   -->
-    <Grid Background="{StaticResource AppBackgroundBrush}">
-        <Grid.ChildrenTransitions>
-            <TransitionCollection>
-                <EntranceThemeTransition/>
-            </TransitionCollection>
-        </Grid.ChildrenTransitions>
-        <Hub SectionHeaderClick="Hub_SectionHeaderClick">
-            <Hub.Header>
-                <!-- Back button and page title -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button  x:Name="backButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        Margin="0,0,39,0" 
-                        VerticalAlignment="Top"
-                        Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>
-                    <TextBlock x:Name="pageTitle" x:Uid="Header" Text="Aprende ruso" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
-                </Grid>
-            </Hub.Header>
-            <HubSection Width="600" Margin="0,0,40,0">
-                <HubSection.Background>
-                    <ImageBrush ImageSource="Assets/bg.png" Stretch="UniformToFill" />
-                </HubSection.Background>
-            </HubSection>
-            <HubSection DataContext="{Binding Language}" Tag="alphabet" IsHeaderInteractive="True" Width="500" x:Uid="Section1Header" Header="Alfabeto">
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
+	<Grid Background="{StaticResource AppBackgroundBrush}">
+		<Grid.ChildrenTransitions>
+			<TransitionCollection>
+				<EntranceThemeTransition/>
+			</TransitionCollection>
+		</Grid.ChildrenTransitions>
+		<Hub SectionHeaderClick="Hub_SectionHeaderClick">
+			<Hub.Header>
+				<!-- Back button and page title -->
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="80"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Button  x:Name="backButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
+						Margin="0,0,39,0" 
+						VerticalAlignment="Top"
+						Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+						AutomationProperties.Name="Back"
+						AutomationProperties.AutomationId="BackButton"
+						AutomationProperties.ItemType="Navigation Button"/>
+					<TextBlock x:Name="pageTitle" x:Uid="Header" Text="Aprende ruso" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+						VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
+				</Grid>
+			</Hub.Header>
+			<HubSection Width="600" Margin="0,0,40,0">
+				<HubSection.Background>
+					<ImageBrush ImageSource="Assets/bg.png" Stretch="UniformToFill" />
+				</HubSection.Background>
+			</HubSection>
+			<HubSection DataContext="{Binding Language}" Tag="alphabet" IsHeaderInteractive="True" Width="500" x:Uid="Section1Header" Header="Alfabeto">
+				<DataTemplate>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
 
-                        <Image Source="Assets/Alphabet.jpg" Stretch="Fill" Width="420" Height="280"/>
-                        <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding Subtitle}"/>
-                        <TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="2" Text="{Binding Description}"/>
-                    </Grid>
-                </DataTemplate>
-            </HubSection>
-            <HubSection IsHeaderInteractive="True" Tag="numbers" DataContext="{Binding Language}"
-                        x:Uid="Section3Header" Header="Los números" Padding="40,40,40,32">
-                <DataTemplate>
-                    <GridView
-                        x:Name="itemGridView"
-                        ItemsSource="{Binding NumbersDisplay}"
-                        AutomationProperties.AutomationId="ItemGridView"
-                        AutomationProperties.Name="Items In Group"
-                        SelectionMode="None"
-                        IsSwipeEnabled="false">
-                        <GridView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"></RowDefinition>
-                                        <RowDefinition Height="50"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100"></ColumnDefinition>
-                                        <ColumnDefinition Width="150"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Border Grid.RowSpan="2" Background="{StaticResource ApplicationForegroundThemeBrush}">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="{StaticResource AppBackgroundBrush}" Text="{Binding NumberString}"></TextBlock>
-                                    </Border>
-                                    <TextBlock Padding="20,0,10,0" FontSize="25" VerticalAlignment="Center" Text="{Binding Name}" Grid.Column="1" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}"></TextBlock>
-                                    <TextBlock Padding="20,0,10,0" FontSize="25"  VerticalAlignment="Center" Text="{Binding SAMPA}" Grid.Column="1" Grid.Row="1"></TextBlock>
-                                </Grid>
-                            </DataTemplate>
-                        </GridView.ItemTemplate>
-                    </GridView>
-                </DataTemplate>
-            </HubSection>
-            <!--
-            <HubSection DataContext="{Binding Alfabeto}" Header="Frases comunes">
-                <DataTemplate>
-                    <GridView IsSwipeEnabled="False" SelectionMode="Single" ItemsSource="{Binding Source={StaticResource prasesGropued}}" >
-                        <GridView.GroupStyle>
-                            <GroupStyle>
-                                <GroupStyle.HeaderTemplate>
-                                    <DataTemplate>
-                                        <Grid Margin="0,0,0,6" >
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{Binding Name}" Margin="0,0,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap"/>
-                                            </StackPanel>
-                                        </Grid>
-                                    </DataTemplate>
-                                </GroupStyle.HeaderTemplate>
-                            </GroupStyle>
-                        </GridView.GroupStyle>
-                        <GridView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <ItemsWrapGrid GroupPadding="0,0,70,0"/>
-                            </ItemsPanelTemplate>
-                        </GridView.ItemsPanel>
-                    </GridView>
-                </DataTemplate>
-            </HubSection>
-            -->
-            <HubSection Header="Recursos" Width="400" Padding="40,40,40,32">
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <TextBlock TextWrapping="Wrap" FontSize="18" Text="Para seguir aprendiendo puedes visitar algunos de los enlaces siguientes, de ellos extraje alguna de la información que están en esta aplicación">
-                        </TextBlock>
-                        <GridView Grid.Row="2"
-                        ItemsSource="{Binding Resources}"
-                        AutomationProperties.AutomationId="ItemGridView"
-                        AutomationProperties.Name="Items In Group"
-                        SelectionMode="None"
-                        IsSwipeEnabled="false" Margin="0">
-                            <GridView.ItemContainerStyle>
-                                <Style TargetType="GridViewItem">
-                                    <Setter Property="Width" Value="200"></Setter>
-                                </Style>
-                            </GridView.ItemContainerStyle>
-                            <GridView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="50"></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <HyperlinkButton NavigateUri="{Binding Url}" Content="{Binding Name}" Style="{StaticResource HyperLinkStyle}"></HyperlinkButton>
-                                    </Grid>
-                                </DataTemplate>
-                            </GridView.ItemTemplate>
-                        </GridView>
-                    </Grid>
-                </DataTemplate>
-            </HubSection>
-        </Hub>
-    </Grid>
+						<Image Source="Assets/Alphabet.jpg" Stretch="Fill" Width="420" Height="280"/>
+						<TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding Subtitle}"/>
+						<TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="2" Text="{Binding Description}"/>
+					</Grid>
+				</DataTemplate>
+			</HubSection>
+			<HubSection IsHeaderInteractive="True" Tag="numbers" DataContext="{Binding Language}"
+				x:Uid="Section3Header" Header="Los números" Padding="40,40,40,32">
+				<DataTemplate>
+					<GridView
+						x:Name="itemGridView"
+						ItemsSource="{Binding NumbersDisplay}"
+						AutomationProperties.AutomationId="ItemGridView"
+						AutomationProperties.Name="Items In Group"
+						SelectionMode="None"
+						IsSwipeEnabled="false">
+						<GridView.ItemTemplate>
+							<DataTemplate>
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="50"/>
+										<RowDefinition Height="50"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="100"/>
+										<ColumnDefinition Width="150"/>
+									</Grid.ColumnDefinitions>
+									<Border Grid.RowSpan="2" Background="{StaticResource ApplicationForegroundThemeBrush}">
+										<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="{StaticResource AppBackgroundBrush}" Text="{Binding NumberString}"/>
+									</Border>
+									<TextBlock Padding="20,0,10,0" FontSize="25" VerticalAlignment="Center" Text="{Binding Name}" Grid.Column="1" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}"/>
+									<TextBlock Padding="20,0,10,0" FontSize="25"  VerticalAlignment="Center" Text="{Binding SAMPA}" Grid.Column="1" Grid.Row="1"/>
+								</Grid>
+							</DataTemplate>
+						</GridView.ItemTemplate>
+					</GridView>
+				</DataTemplate>
+			</HubSection>
+			<HubSection DataContext="{Binding Language}" Header="Frases comunes" FontWeight="Bold">
+				<DataTemplate>
+					<GridView IsSwipeEnabled="False" ItemsSource="{Binding PhraseGroups}" SelectionMode="Single">
+						<GridView.ItemTemplate>
+							<DataTemplate>
+								<StackPanel Margin="0" Width="230">
+									<Border Background="{StaticResource AppDarkerBrush}" Padding="15,0,15,10">
+										<TextBlock Text="{Binding Name}" FontWeight="Normal" 
+											Style="{StaticResource SubheaderTextBlockStyle}" Margin="0" FontSize="17" />
+									</Border>
+									<ListBox ItemsSource="{Binding DisplayPhrases}" FontSize="12">
+										<ListBox.ItemTemplate>
+											<DataTemplate>
+												<StackPanel>
+													<TextBlock Text="{Binding Translated}" />
+													<TextBlock Text="{Binding SAMPA}" />
+												</StackPanel>
+											</DataTemplate>
+										</ListBox.ItemTemplate>
+									</ListBox> 
+									<!--
+									<ListView ItemsSource="{Binding DisplayPhrases}" SelectionMode="None">
+										<ListView.ItemTemplate>
+											<DataTemplate>
+												<StackPanel>
+													<TextBlock Text="{Binding Original}" />
+													<TextBlock Text="{Binding SAMPA}" />
+												</StackPanel>
+											</DataTemplate>
+										</ListView.ItemTemplate>
+									</ListView>
+									-->
+								</StackPanel>
+							</DataTemplate>
+						</GridView.ItemTemplate>
+					</GridView>
+				</DataTemplate>
+			</HubSection>
+			<HubSection Header="Recursos" Width="400" Padding="40,40,40,32">
+				<DataTemplate>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock TextWrapping="Wrap" FontSize="18" Text="Para seguir aprendiendo puedes visitar algunos de los enlaces siguientes, de ellos extraje alguna de la información que están en esta aplicación"/>
+						<GridView Grid.Row="2"
+							ItemsSource="{Binding Resources}"
+							AutomationProperties.AutomationId="ItemGridView"
+							AutomationProperties.Name="Items In Group"
+							SelectionMode="None"
+							IsSwipeEnabled="false" Margin="0">
+							<GridView.ItemContainerStyle>
+								<Style TargetType="GridViewItem">
+									<Setter Property="Width" Value="200"/>
+								</Style>
+							</GridView.ItemContainerStyle>
+							<GridView.ItemTemplate>
+								<DataTemplate>
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="50"/>
+										</Grid.RowDefinitions>
+										<HyperlinkButton NavigateUri="{Binding Url}" Content="{Binding Name}" Style="{StaticResource HyperLinkStyle}"/>
+									</Grid>
+								</DataTemplate>
+							</GridView.ItemTemplate>
+						</GridView>
+					</Grid>
+				</DataTemplate>
+			</HubSection>
+		</Hub>
+	</Grid>
 </Page>

@@ -7,11 +7,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    DataContext="{Binding HubVM, Mode=OneWay, Source={StaticResource Locator}}"
     Background="{StaticResource AppBackgroundBrush}">
 
 
-    <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
+    <Grid x:Name="LayoutRoot" >
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -30,7 +30,7 @@
             <TextBlock Text="los números" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
         </StackPanel>
 
-        <ListBox Grid.Row="1"  DataContext="{Binding Alfabeto}" ItemsSource="{Binding Numbers}">
+        <ListBox Grid.Row="1"  DataContext="{Binding Language}" ItemsSource="{Binding Numbers}">
             <ListBox.Resources>
                 <Style TargetType="TextBlock" x:Key="FirstLine">
                     <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"></Setter>

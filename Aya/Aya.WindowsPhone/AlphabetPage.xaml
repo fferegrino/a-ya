@@ -5,14 +5,18 @@
     xmlns:local="using:Aya"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Page.Resources>
     </Page.Resources>
+	<Page.Background>
+		<StaticResource ResourceKey="AppBackgroundBrush"/>
+	</Page.Background>
+	<Page.DataContext>
+		<Binding Mode="OneWay" Path="HubVM" Source="{StaticResource Locator}"/>
+	</Page.DataContext>
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar Background="{StaticResource AppDarkerBrush}">
             <CommandBar.PrimaryCommands>
                 <AppBarButton Label="sonido" Icon="Play" Click="AppBarButton_Click">
                 </AppBarButton>
@@ -20,7 +24,7 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid x:Name="LayoutRoot" d:DataContext="{Binding Source={StaticResource ddContext}}">
+    <Grid x:Name="LayoutRoot">
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -38,8 +42,8 @@
             <TextBlock Text="alfabeto crílico" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
         </StackPanel>
         
-        <ListBox Grid.Row="1" DataContext="{Binding Alfabeto}" ItemsSource="{Binding Symbols}" 
-                 x:Name="alphabetItems" Background="{StaticResource PhoneBackgroundBrush}">
+        <ListBox Grid.Row="1" DataContext="{Binding Language}" ItemsSource="{Binding Symbols}" 
+                 x:Name="alphabetItems">
             <ListBox.Resources>
                 <Style TargetType="TextBlock" x:Key="FirstLine">
                     <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"></Setter>
@@ -47,6 +51,9 @@
                     <Setter Property="FontSize" Value="25"></Setter>
                 </Style>
             </ListBox.Resources>
+        	<ListBox.Background>
+        		<StaticResource ResourceKey="AppBackgroundBrush"/>
+        	</ListBox.Background>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid  Margin="10">

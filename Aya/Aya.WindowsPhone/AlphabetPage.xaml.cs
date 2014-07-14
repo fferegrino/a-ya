@@ -69,7 +69,7 @@ namespace Aya
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            this.DefaultViewModel["Alfabeto"] = (Alphabet)e.NavigationParameter;
+            
         }
 
         /// <summary>
@@ -120,8 +120,7 @@ namespace Aya
                 mediaElement.Play();
             }else if(alphabetItems.SelectedIndex < 0){
                 MessageDialog md = new MessageDialog("Elige una letra antes, por favor");
-                bool? result;
-                md.Commands.Add(new UICommand("Aceptar", new UICommandInvokedHandler((cmd) => result = true)));
+                md.Commands.Add(new UICommand("Aceptar", new UICommandInvokedHandler((cmd) => { })));
                 await md.ShowAsync();
             }
         }

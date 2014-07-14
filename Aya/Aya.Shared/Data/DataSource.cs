@@ -28,10 +28,9 @@ namespace Aya.Models
     public sealed class DataSource
     {
 
-
         private static DataSource _sampleDataSource = new DataSource();
         private static Alphabet _alfabeto;
-        private static List<Resource> _resources;
+        private static ObservableCollection<Resource> _resources;
         
         public static async Task<Alphabet> GetAlphabetAsync()
         {
@@ -42,7 +41,7 @@ namespace Aya.Models
             return _alfabeto;
         }
 
-        public static async Task<List<Resource>> GetResourcesAsync()
+        public static async Task<ObservableCollection<Resource>> GetResourcesAsync()
         {
             if (_resources == null)
             {
@@ -53,7 +52,7 @@ namespace Aya.Models
 
         private async Task GetDataAsync()
         {
-            Uri uriAlfabeto = new Uri("ms-appx:///JSONData/idioma.json");
+            Uri uriAlfabeto = new Uri("ms-appx:///Data/idioma.json");
             StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(uriAlfabeto);
             string jsonText = await FileIO.ReadTextAsync(file);
             JsonObject jObject = JsonObject.Parse(jsonText);
@@ -61,7 +60,7 @@ namespace Aya.Models
             _alfabeto = Alphabet.FromJsonObject(jObject["alphabet"].GetObject());
             #endregion
             #region Recursos
-            _resources = new List<Resource>();
+            _resources = new ObservableCollection<Resource>();
             JsonArray resourcesArray = jObject["resources"].GetArray();
             foreach (JsonValue jval in resourcesArray)
             {
@@ -71,38 +70,5 @@ namespace Aya.Models
             #endregion
         }
 
-        /*
-
-        private ObservableCollection<SampleDataGroup> _groups = new ObservableCollection<SampleDataGroup>();
-        public ObservableCollection<SampleDataGroup> Groups
-        {
-            get { return this._groups; }
-        }
-        public static async Task<IEnumerable<SampleDataGroup>> GetGroupsAsync()
-        {
-            await _sampleDataSource.GetSampleDataAsync();
-
-            return _sampleDataSource.Groups;
-        }
-        */
-        /*
-        public static async Task<SampleDataGroup> GetGroupAsync(string uniqueId)
-        {
-            await _sampleDataSource.GetSampleDataAsync();
-            // Simple linear search is acceptable for small data sets
-            var matches = _sampleDataSource.Groups.Where((group) => group.UniqueId.Equals(uniqueId));
-            if (matches.Count() == 1) return matches.First();
-            return null;
-        }
-
-        public static async Task<DataSource> GetItemAsync(string uniqueId)
-        {
-            await _sampleDataSource.GetSampleDataAsync();
-            // Simple linear search is acceptable for small data sets
-            var matches = _sampleDataSource.Groups.SelectMany(group => group.Items).Where((item) => item.UniqueId.Equals(uniqueId));
-            if (matches.Count() == 1) return matches.First();
-            return null;
-        }
-        */
     }
 }

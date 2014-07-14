@@ -1,5 +1,6 @@
 ﻿using Aya.Models;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,16 +34,16 @@ namespace Aya.ViewModels
                         NumberInteger = 10
                     }, i < 10);
                 }
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 6; i++)
                 {
-                    PhraseGroup p = new PhraseGroup();
-                    p.Phrases = new ObservableCollection<Phrase>();
-                    p.Name = "Phrase group " + i;
+                    PhraseGroup p = new PhraseGroup("Phrase group " + i);
+                    p.FullPhrases = new ObservableCollection<Phrase>();
                     p.DisplayPhrases = new ObservableCollection<Phrase>();
                     for (int jj = 0; jj < 30; jj++)
                     {
-                        p.Phrases.Add(new Phrase { Original = "Frase original" });
-                        p.DisplayPhrases.Add(p.Phrases[jj]);
+                        p.FullPhrases.Add(new Phrase { Original = "Frase original asdopaksd", SAMPA = "[kahsdjhajkshd poaksdñlask apsd]" });
+                        if (jj < 3)
+                            p.DisplayPhrases.Add(p.FullPhrases[jj]);
                     }
 
                     _alphabet.AddPhraseGroup(p);
@@ -60,14 +61,28 @@ namespace Aya.ViewModels
                 }
                 #endregion
             }
+            else
+            {
+
+            }
+            _clearSelectionsCommand = new RelayCommand(() => { SelectedPhraseGroup = null; });
+            _loadDataCommand = new RelayCommand(() => { GetData(); });
         }
 
         #region Exposed properties
+        private PhraseGroup _selectedPhraseGroup;
+
+        public PhraseGroup SelectedPhraseGroup
+        {
+            get { return _selectedPhraseGroup; }
+            set { _selectedPhraseGroup = value; RaisePropertyChanged(); }
+        }
+
         private Alphabet _alphabet;
         public Alphabet Language
         {
             get { return _alphabet; }
-            set { _alphabet = value; }
+            set { _alphabet = value; RaisePropertyChanged(); }
         }
 
         private ObservableCollection<Resource> _resources;
@@ -75,9 +90,33 @@ namespace Aya.ViewModels
         public ObservableCollection<Resource> Resources
         {
             get { return _resources; }
-            set { _resources = value; }
+            set { _resources = value; RaisePropertyChanged(); }
         }
 
+        #endregion
+
+        #region Commands
+        private RelayCommand _clearSelectionsCommand;
+
+        public RelayCommand ClearSelectionsCommand
+        {
+            get { return _clearSelectionsCommand; }
+        }
+
+        private RelayCommand _loadDataCommand;
+
+        public RelayCommand LoadDataCommand
+        {
+            get { return _loadDataCommand; }
+        }
+        #endregion
+
+        #region GetDataMethods
+        private async void GetData()
+        {
+            Language = await DataSource.GetAlphabetAsync();
+            Resources = await DataSource.GetResourcesAsync();
+        }
         #endregion
     }
 }

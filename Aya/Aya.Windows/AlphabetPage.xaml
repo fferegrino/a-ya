@@ -1,26 +1,26 @@
 ﻿<Page
-    x:Name="pageRoot"
-    x:Class="Aya.AlphabetPage"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Aya"
     xmlns:converters="using:Aya.Common.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    x:Name="pageRoot"
+    x:Class="Aya.AlphabetPage"
     mc:Ignorable="d">
 
     <Page.Resources>
         <Style x:Key="SymbolStyle" BasedOn="{StaticResource TitleTextBlockStyle}" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="60"></Setter>
-            <Setter Property="Margin" Value="0, 0,0,15"></Setter>
-            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        	<Setter Property="FontSize" Value="60"/>
+        	<Setter Property="Margin" Value="0, 0,0,15"/>
+        	<Setter Property="VerticalAlignment" Value="Bottom"/>
+        	<Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
         <Style x:Key="NormalText" TargetType="TextBlock">
-            <Setter Property="TextWrapping" Value="Wrap"></Setter>
-            <Setter Property="FontFamily" Value="Segoe UI Light"></Setter>
-            <Setter Property="FontSize" Value="15"></Setter>
+        	<Setter Property="TextWrapping" Value="Wrap"/>
+        	<Setter Property="FontFamily" Value="Segoe UI Light"/>
+        	<Setter Property="FontSize" Value="15"/>
         </Style>
         <DataTemplate x:Key="LetterDataTemplate">
         	<Grid>
@@ -44,140 +44,149 @@
         	</Grid>
         </DataTemplate>
     </Page.Resources>
+	<Page.DataContext>
+		<Binding Mode="OneWay" Path="HubVM" Source="{StaticResource Locator}"/>
+	</Page.DataContext>
 
-    <Grid Background="{StaticResource AppBackgroundBrush}"  d:DataContext="{Binding Source={StaticResource ddContext}}">
-        <Grid.ChildrenTransitions>
-            <TransitionCollection>
-                <EntranceThemeTransition/>
-            </TransitionCollection>
-        </Grid.ChildrenTransitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="140"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="primaryColumn" Width="550"/>
-            <ColumnDefinition x:Name="secondaryColumn" Width="*"/>
-        </Grid.ColumnDefinitions>
-        
-        <Grid x:Name="titlePanel" DataContext="{Binding Alfabeto}" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        VerticalAlignment="Top"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>
-            <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,0,40"/>
-        </Grid>
-        
-        <ListView DataContext="{Binding Alfabeto}"
-            x:Name="itemListView"
-            AutomationProperties.AutomationId="ItemsListView"
-            AutomationProperties.Name="Items"
-            TabIndex="1"
-            Grid.Row="1"
-            Margin="37,0,0,0"
-            Padding="0,0,37,0"
-            ItemsSource="{Binding Symbols}"
-            IsSwipeEnabled="False"
-            SelectionChanged="ItemListView_SelectionChanged"
-            ItemTemplate="{StaticResource LetterDataTemplate}" ItemContainerStyle="{StaticResource ListItemStyle}"/>
-        
-        <ScrollViewer
-            x:Name="itemDetail"
-            AutomationProperties.AutomationId="ItemDetailScrollViewer"
-            Grid.Column="1"
-            Grid.RowSpan="2"
-            Padding="10,10,10,0"
-            Background="{StaticResource AppDarkerBrush}"
-            DataContext="{Binding SelectedItem, ElementName=itemListView}"
-			d:DataContext="{Binding Source={StaticResource ddContext}}"
-            HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
-            ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.VerticalScrollMode="Enabled"
-            ScrollViewer.ZoomMode="Disabled" Margin="0,0,0,0">
+	<Interactivity:Interaction.Behaviors>
+		<Core:EventTriggerBehavior EventName="Loaded">
+			<Core:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
+		</Core:EventTriggerBehavior>
+	</Interactivity:Interaction.Behaviors>
 
-            <Grid x:Name="itemDetailGrid" Margin="0,140,0,0"  d:DataContext="{Binding Alfabeto.Symbols[0]}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"></RowDefinition>
-                    <RowDefinition Height="70"></RowDefinition>
-                    <RowDefinition Height="30"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="30"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+	<Grid Background="{StaticResource AppBackgroundBrush}"  >
+		<Grid.ChildrenTransitions>
+			<TransitionCollection>
+				<EntranceThemeTransition/>
+			</TransitionCollection>
+		</Grid.ChildrenTransitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="140"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition x:Name="primaryColumn" Width="550"/>
+			<ColumnDefinition x:Name="secondaryColumn" Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x:Name="ViewStates">
+				<VisualState x:Name="PrimaryView" />
+				<VisualState x:Name="SinglePane">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="primaryColumn" Storyboard.TargetProperty="Width">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="secondaryColumn" Storyboard.TargetProperty="Width">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="Visibility">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView" Storyboard.TargetProperty="Padding">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="0,0,37,0"/>
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+				<VisualState x:Name="SinglePane_Detail">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="primaryColumn" Storyboard.TargetProperty="Width">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView" Storyboard.TargetProperty="Visibility">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="(Grid.Row)">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="(Grid.RowSpan)">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="titlePanel" Storyboard.TargetProperty="(Grid.Column)">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetailGrid" Storyboard.TargetProperty="Margin">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,60"/>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="Padding">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="10,30,10,0"/>
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+        
+		<Grid x:Name="titlePanel"  Grid.ColumnSpan="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="120"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+				Style="{StaticResource NavigationBackButtonNormalStyle}"
+				VerticalAlignment="Top"
+				AutomationProperties.Name="Back"
+				AutomationProperties.AutomationId="BackButton"
+				AutomationProperties.ItemType="Navigation Button"/>
+			<TextBlock x:Name="pageTitle" Text="Alfabeto ruso" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+				IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,0,40"/>
+		</Grid>
+        
+		<ListView
+			x:Name="itemListView"
+			AutomationProperties.AutomationId="ItemsListView"
+			AutomationProperties.Name="Items"
+			TabIndex="1"
+			Grid.Row="1"
+			Margin="37,0,0,0"
+			Padding="0,0,37,0"
+			ItemsSource="{Binding Language.Symbols}"
+			IsSwipeEnabled="False"
+			SelectionChanged="ItemListView_SelectionChanged"
+			ItemTemplate="{StaticResource LetterDataTemplate}" ItemContainerStyle="{StaticResource ListItemStyle}"/>
+        
+		<ScrollViewer
+			x:Name="itemDetail"
+			AutomationProperties.AutomationId="ItemDetailScrollViewer"
+			Grid.Column="1"
+			Grid.RowSpan="2"
+			Padding="10,10,10,0"
+			Background="{StaticResource AppDarkerBrush}"
+			DataContext="{Binding SelectedItem, ElementName=itemListView}"
+			HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
+			ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.VerticalScrollMode="Enabled"
+			ScrollViewer.ZoomMode="Disabled" Margin="0,0,0,0">
+
+			<Grid x:Name="itemDetailGrid" Margin="0,140,0,0"  d:DataContext="{Binding Alfabeto.Symbols[0]}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="70"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
                 
-                <TextBlock Text="Mayúscula" HorizontalAlignment="Center" Grid.Column="0" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-                <TextBlock Text="Minúscula" HorizontalAlignment="Center"  Grid.Column="1" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-                <TextBlock x:Name="itemUppercase" Grid.Column="0" Grid.Row="1" Text="{Binding Uppercase}" Style="{StaticResource SymbolStyle}"/>
-                <TextBlock x:Name="itemLowercase" Grid.Column="1" Grid.Row="1" Text="{Binding Lowercase}" Style="{StaticResource SymbolStyle}"/>
+				<TextBlock Text="Mayúscula" HorizontalAlignment="Center" Grid.Column="0" Style="{StaticResource TitleTextBlockStyle}"/>
+				<TextBlock Text="Minúscula" HorizontalAlignment="Center"  Grid.Column="1" Style="{StaticResource TitleTextBlockStyle}"/>
+				<TextBlock x:Name="itemUppercase" Grid.Column="0" Grid.Row="1" Text="{Binding Uppercase}" Style="{StaticResource SymbolStyle}"/>
+				<TextBlock x:Name="itemLowercase" Grid.Column="1" Grid.Row="1" Text="{Binding Lowercase}" Style="{StaticResource SymbolStyle}"/>
 
-                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Text="Orígen" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="IPA" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Text="{Binding SAMPA}" FontSize="70"></TextBlock>
-                <TextBlock Grid.Row="3" HorizontalAlignment="Center" Text="{Binding Origin}" Style="{StaticResource NormalText}"/>
+				<TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Text="Orígen" Style="{StaticResource TitleTextBlockStyle}"/>
+				<TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="IPA" Style="{StaticResource TitleTextBlockStyle}"/>
+				<TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Text="{Binding SAMPA}" FontSize="70"/>
+				<TextBlock Grid.Row="3" HorizontalAlignment="Center" Text="{Binding Origin}" Style="{StaticResource NormalText}"/>
 
-                <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Text="Descripción" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-                <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Text="Sonido" Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-                <TextBlock Grid.Row="5" Margin="0,0,0,0" HorizontalAlignment="Center" Text="{Binding Description}" Style="{StaticResource NormalText}"/>
-                <Button Grid.Row="5" HorizontalAlignment="Center" Grid.Column="1" Content="Play" Click="Button_Click"></Button>
-                <MediaElement AutoPlay="False" x:Name="soundPlayer" Grid.Row="5" Grid.Column="1" Source="{Binding Uppercase,Converter={StaticResource uriConverter}}"></MediaElement>
-            </Grid>
-        </ScrollViewer>
+				<TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Text="Descripción" Style="{StaticResource TitleTextBlockStyle}"/>
+				<TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Text="Sonido" Style="{StaticResource TitleTextBlockStyle}"/>
+				<TextBlock Grid.Row="5" Margin="0,0,0,0" HorizontalAlignment="Center" Text="{Binding Description}" Style="{StaticResource NormalText}"/>
+				<Button Grid.Row="5" HorizontalAlignment="Center" Grid.Column="1" Content="Play" Click="Button_Click"/>
+				<MediaElement AutoPlay="False" x:Name="soundPlayer" Grid.Row="5" Grid.Column="1" Source="{Binding Uppercase, Converter={StaticResource uriConverter}}"/>
+			</Grid>
+		</ScrollViewer>
 
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="ViewStates">
-                <VisualState x:Name="PrimaryView" />
-                <VisualState x:Name="SinglePane">
-                    <Storyboard>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="primaryColumn" Storyboard.TargetProperty="Width">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="*"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="secondaryColumn" Storyboard.TargetProperty="Width">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView" Storyboard.TargetProperty="Padding">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,37,0"/>
-                        </ObjectAnimationUsingKeyFrames>
-                    </Storyboard>
-                </VisualState>
-                <VisualState x:Name="SinglePane_Detail">
-                    <Storyboard>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="primaryColumn" Storyboard.TargetProperty="Width">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="0"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView" Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="(Grid.Row)">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="(Grid.RowSpan)">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="titlePanel" Storyboard.TargetProperty="(Grid.Column)">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetailGrid" Storyboard.TargetProperty="Margin">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,60"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemDetail" Storyboard.TargetProperty="Padding">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,30,10,0"/>
-                        </ObjectAnimationUsingKeyFrames>
-                    </Storyboard>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-    </Grid>
+	</Grid>
 </Page>
