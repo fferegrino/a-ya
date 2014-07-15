@@ -6,9 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{StaticResource AppBackgroundBrush}">
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource AppBackgroundBrush}">
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -25,6 +25,8 @@
             <TextBlock Text="APRENDE RUSO" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
             <TextBlock Text="{StaticResource aboutHeader}" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
             <TextBlock TextWrapping="Wrap" Style="{StaticResource TitleTextBlockStyle}" Text="{StaticResource aboutText}"></TextBlock>
+			<HyperlinkButton NavigateUri="http://twitter.com/io_exception">
+				<TextBlock TextWrapping="Wrap" Text="¿Sugerencias?, envíame un tuit a @io_exception"/></HyperlinkButton>
             <HyperlinkButton NavigateUri="http://www.windowsphone.com/es-mx/search?q=fferegrino" Content="Visita mis otras apps"></HyperlinkButton>
         </StackPanel>
     </Grid>

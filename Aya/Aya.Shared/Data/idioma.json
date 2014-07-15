@@ -273,40 +273,10 @@
             { "key": "orientacion", "name": "Pedir indicaciones" }
         ],
         "commonPhrases": {
-            "saludos": [
-                {
-                    "original": "Привет",
-                    "translated": "Hola",
-                    "description": "Es un saludo informal",
-                    "sampa": "pri-vyet",
-                    "importance": 1
-                },
-                {
-                    "original": "Здрaвствуйте",
-                    "translated": "Hola",
-                    "description": "Es un saludo formal",
-                    "sampa": "zdrast-vuj-tye",
-                    "importance": 1
-                }
-            ],
-            "despedidas": [
-                {
-                    "original": "Покаa",
-                    "translated": "Adiós",
-                    "description": "Es una despedida informal",
-                    "sampa": "pa-ka",
-                    "importance": 1
-                },
-                {
-                    "original": "До свидaния",
-                    "translated": "Hasta luego",
-                    "description": "Esta es una despedida formal",
-                    "sampa": "da svi-da-niya",
-                    "importance": 1
-                }
-            ],
-            "dinero": [{"original":"Сколько это стоит?","translated":"¿Cuánto cuesta esto?","sampa":"skol-ka e-ta sto-it?","description":"Para preguntar por el precio de algo","importance":10},{"original":"Сколько это в... ?","translated":"¿Cuánto cuesta esto en...?","sampa":"skol-ka e-ta v...?","description":"Para preguntar por el precio de algo en alguna moneda en específico","importance":10},{"original":"рублях","translated":"Rublos","sampa":"ru-blyah","description":"Así es como se pronuncia rublos, para preguntar por precios","importance":9},{"original":"евро","translated":"Euros","sampa":"ye-vra","description":"Así es como se pronuncia euros, para preguntar por precios","importance":9},{"original":"долларах","translated":"Dólares","sampa":"do-la-rah","description":"Así es como se pronuncia dólares, para preguntar por precios","importance":9}],
-            "orientacion": [ { "original": "Мне нужно в", "translated": "Necesito ir a", "sampa": "mnye nuzh-na v", "description": "Debes agregar el lugar al que quieres ir al final", "importance": 5 }, { "original": "Это далеко?", "translated": "¿Está cerca?", "sampa": "e-ta da-lye-ko?", "description": "Para preguntar si algún lugar está cerca", "importance": 3 }, { "original": "Это недалеко?", "translated": "¿Está lejos?", "sampa": "e-ta nye-da-lye-ko?", "description": "Para preguntar si algún lugar está lejos", "importance": 3 }, { "original": "Какая это улица?", "translated": "¿Qué calle es esta?", "sampa": "ka-ka-ya e-ta u-li-tsa? ", "description": "Para preguntar en que calle nos encontramos", "importance": 2 } ]
+            "saludos": [ { "original": "Доброе утро", "translated": "Buenos días", "sampa": "do-bra-ye u-tra", "description": "Para saludar por la mañana", "importance": 1 }, { "original": "Добрый день", "translated": "Buen día", "sampa": "do-bryj dyen", "description": "Similar a buenos días por la mañana, pero lo puedes decir al comenzar la tarde", "importance": 1 }, { "original": "Привет", "translated": "¡Hola!", "sampa": "pri-vyet", "description": "Es un hola muy informal, para usarse con amigos, familia o niños.", "importance": 0 }, { "original": "Здравствуйте", "translated": "Hola", "sampa": "zdrast-vuj-tye ", "description": "Es un saludo que se usa con desconocidos o personas a las que debemos respeto", "importance": 0 }, { "original": "Добрый вечер", "translated": "Buenas tardes", "sampa": "do-bryj vye-chyer", "description": "Es un saludo que se puede decir en la tarde-noche", "importance": 1 } ],
+            "despedidas": [{"original":"Спокойной ночи","translated":"Buenas noches","sampa":"spa-koj-naj no-chi ","description":"Esta despedida se emplea más que nada antes de ir a dormir","importance":1},{"original":"Пока","translated":"Adiós","sampa":"pa-ka","description":"Es una despedida muy informal, para usarse con amigos, familia o niños","importance":0},{"original":"До свидания","translated":"Adiós","sampa":"da svi-da-ni-ya-ni-ya","description":"Este es una despedida formal, sin embargo la podemos emplear con cualquier persona","importance":0},{"original":"Увидимся","translated":"¡Nos vemos!","sampa":"u-vi-dim-sya","description":"Una despedida sin especificar un tiempo, como cuando te despides de alguien que encontraste en la calle","importance":1},{"original":"Всего хорошего","translated":"Hasta luego","sampa":"Vsego khoro-shego","description":"Como cuando te despides de alguien que no vas a ver en un largo tiempo","importance":2},{"original":"До завтра","translated":"Hasta mañana","sampa":"da zaf-tra","description":"Para despedirse de alguien que verás al otro día","importance":1}],
+            "dinero": [ { "original": "Сколько это стоит?", "translated": "¿Cuánto cuesta esto?", "sampa": "skol-ka e-ta sto-it?", "description": "Para preguntar por el precio de algo", "importance": 0 }, { "original": "Сколько это в... ?", "translated": "¿Cuánto cuesta esto en...?", "sampa": "skol-ka e-ta v...?", "description": "Para preguntar por el precio de algo en alguna moneda en específico", "importance": 0 }, { "original": "Вы принимаете...", "translated": "¿Acepta... ?", "sampa": "vy pri-ni-ma-ye-tye...?", "description": "Para preguntar si aceptan dólares, euros o rublos", "importance": 1 }, { "original": "Кредитные карты", "translated": "Tarjeta de crédito", "sampa": "krye-dit-ny-ye kar-ty", "description": "Así es como se pronuncia rublos, para preguntar por precios", "importance": 1 }, { "original": "рублях", "translated": "Rublos", "sampa": "ru-blyah", "description": "Así es como se pronuncia rublos, para preguntar por precios", "importance": 1 }, { "original": "евро", "translated": "Euros", "sampa": "ye-vra", "description": "Así es como se pronuncia euros, para preguntar por precios", "importance": 1 }, { "original": "долларах", "translated": "Dólares", "sampa": "do-la-rah", "description": "Así es como se pronuncia dólares, para preguntar por precios", "importance": 1 }, { "original": "Банкомат", "translated": "Cajero automático", "sampa": "ban-ka-mat", "description": "Así se pronuncia cajero automático", "importance": 2 } ],
+            "orientacion": [{"original":"Мне нужно в","translated":"Necesito ir a","sampa":"mnye nuzh-na v","description":"Debes agregar el lugar al que quieres ir al final","importance":0},{"original":"Это далеко?","translated":"¿Está cerca?","sampa":"e-ta da-lye-ko?","description":"Para preguntar si algún lugar está cerca","importance":3},{"original":"Это недалеко?","translated":"¿Está lejos?","sampa":"e-ta nye-da-lye-ko?","description":"Para preguntar si algún lugar está lejos","importance":3},{"original":"Какая это улица?","translated":"¿Qué calle es esta?","sampa":"ka-ka-ya e-ta u-li-tsa? ","description":"Para preguntar en que calle nos encontramos","importance":2},{"original":"Вы знаете как попасть в...?","translated":"¿Sabe como se llega a...?","sampa":"vy zna-ye-tye, kak pa-past v...?","description":"Se debe agregar al final el lugar al que quieres llegar","importance":1},{"original":"Автобусе","translated":"Autobús","sampa":"af-to-bu-sye","description":"Pronunciación de autobús","importance":2},{"original":"Такси","translated":"Taxi","sampa":"ta-ksi","description":"Pronunciación de taxi","importance":2},{"original":"метро","translated":"Metro","sampa":"mye-tro","description":"Pronunciación de metro","importance":2}]
         }
     },
     "resources": [

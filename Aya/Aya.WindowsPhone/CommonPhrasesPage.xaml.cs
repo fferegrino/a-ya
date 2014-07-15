@@ -32,7 +32,7 @@ namespace Aya
 
         public CommonPhrasesPage()
         {
-            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            //HardwareButtons.BackPressed += HardwareButtons_BackPressed;
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);

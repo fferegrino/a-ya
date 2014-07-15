@@ -94,7 +94,7 @@ namespace Aya.Models
                             orderby x.GetObject()["importance"].GetNumber()
                             select Phrase.FromJsonObject(x.GetObject());
                 phraseGroup.FullPhrases = new ObservableCollection<Phrase>(arrau);
-                phraseGroup.DisplayPhrases = new ObservableCollection<Phrase>(phraseGroup.FullPhrases.Take(5));
+                phraseGroup.DisplayPhrases = new ObservableCollection<Phrase>(phraseGroup.FullPhrases.Take(3));
                 _alfabeto.AddPhraseGroup(phraseGroup);
             }
             return _alfabeto;

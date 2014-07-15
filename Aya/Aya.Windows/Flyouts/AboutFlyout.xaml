@@ -20,7 +20,10 @@
 
             
             <TextBlock FontSize="16" Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,25" TextWrapping="Wrap" Text="{StaticResource aboutText}"></TextBlock>
-            <HyperlinkButton NavigateUri="ms-windows-store:Publisher?name=fferegrino" Content="Visita mis otras apps"></HyperlinkButton>
+            <HyperlinkButton NavigateUri="http://twitter.com/fferegrino">
+				<TextBlock TextWrapping="Wrap" >¿Sugerencias?, envíame un tuit a @io_exception</TextBlock>
+			</HyperlinkButton>
+			<HyperlinkButton NavigateUri="ms-windows-store:Publisher?name=fferegrino" Content="Visita mis otras apps"></HyperlinkButton>
         </StackPanel>
 
         <!-- Define more Content Sections below as necessary -->

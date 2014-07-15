@@ -366,10 +366,22 @@
     <MainPackageIdentityName>14107fferegrino.RutAppDF</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/b01c6864-d649-4471-9afa-2d25549fd787">
-    <PackageInfo>
-      <OsMinVersion>6.3.0.0</OsMinVersion>
-      <PackageArchitecture>neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
-    </PackageInfo>
+    <BundleInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture>Neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
+      </PackageInfo>
+    </BundleInfo>
   </PackageInfoList>
 </StoreAssociation>
