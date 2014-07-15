@@ -6,8 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Aya.CommonPhrasesPage"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" DataContext="{Binding CommonPhrasesVM, Mode=OneWay, Source={StaticResource Locator}}">
+    mc:Ignorable="d" DataContext="{Binding CommonPhrasesVM, Mode=OneWay, Source={StaticResource Locator}}">
     <Page.Resources>
         <DataTemplate x:Key="PhraseTemplate">
             <Grid>
@@ -19,6 +18,9 @@
             </Grid>
         </DataTemplate>
     </Page.Resources>
+	<Page.Background>
+		<StaticResource ResourceKey="AppBackgroundBrush"/>
+	</Page.Background>
 
     <Interactivity:Interaction.Behaviors>
         <Core:EventTriggerBehavior EventName="Loaded">
@@ -37,14 +39,31 @@
         <Hub Name="contentHub" Header="{Binding Name, Converter={StaticResource lowerConverter}}">
             <HubSection Name="listaHubSection" Header="LISTA">
                 <DataTemplate>
+					<Grid>
                     <ListBox Name="fullList" HorizontalAlignment="Left" Margin="0,0,-0.5,0" ItemTemplate="{StaticResource PhraseTemplate}" ItemsSource="{Binding FullPhrases}" SelectedItem="{Binding CommonPhrasesVM.SelectedPhrase, Mode=TwoWay, Source={StaticResource Locator}}" Background="{StaticResource AppBackgroundBrush}" SelectionChanged="ListBox_SelectionChanged">
-                        <Grid Height="474" Width="327"/>
                     </ListBox>
+					</Grid>
                 </DataTemplate>
             </HubSection>
-            <HubSection Header="{Binding Original, Converter={StaticResource upperConverter}}" DataContext="{Binding CommonPhrasesVM.SelectedPhrase, Source={StaticResource Locator}}">
+            <HubSection Header="FRASE" DataContext="{Binding CommonPhrasesVM.SelectedPhrase, Source={StaticResource Locator}}">
                 <DataTemplate>
-                    <Grid/>
+					<Grid>
+                    <ScrollViewer HorizontalAlignment="Left" Margin="0,0,0,0">
+                		<StackPanel>
+							<TextBlock HorizontalAlignment="Left" Margin="0,0,0,-10" TextWrapping="Wrap" Text="Escrito" VerticalAlignment="Top" Style="{StaticResource TitleTextBlockStyle}" 	/>
+                			<TextBlock HorizontalAlignment="Left" Margin="0,0,0,8" TextWrapping="Wrap" Text="{Binding Original}" VerticalAlignment="Top" Style="{StaticResource HeaderTextBlockStyle}" FontSize="35"		/>
+
+							<TextBlock HorizontalAlignment="Left" Margin="0,0,0,-10" TextWrapping="Wrap" Text="Pronunciado" VerticalAlignment="Top" Style="{StaticResource TitleTextBlockStyle}" 	/>
+							<TextBlock HorizontalAlignment="Left" Margin="0,0,0,8" TextWrapping="Wrap" Text="{Binding SAMPA}" VerticalAlignment="Top" Style="{StaticResource HeaderTextBlockStyle}" FontSize="40"		/>
+
+							<TextBlock HorizontalAlignment="Left" Margin="0,0,0,-10" TextWrapping="Wrap" Text="Significado" VerticalAlignment="Top" Style="{StaticResource TitleTextBlockStyle}" 	/>
+							<TextBlock HorizontalAlignment="Left" Margin="0,0,0,8" TextWrapping="Wrap" Text="{Binding Translated}" VerticalAlignment="Top" Style="{StaticResource HeaderTextBlockStyle}" FontSize="35"	/>
+
+							<TextBlock HorizontalAlignment="Left" Margin="0,0,0,-5" TextWrapping="Wrap" Text="Notas" VerticalAlignment="Top" Style="{StaticResource TitleTextBlockStyle}" 	/>
+							<TextBlock HorizontalAlignment="Left" Margin="0,0,0,8" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Style="{StaticResource BodyTextBlockStyle}" 	/>
+                		</StackPanel>
+                	</ScrollViewer>
+				</Grid>
                 </DataTemplate>
             </HubSection>
         </Hub>

@@ -120,7 +120,7 @@ namespace Aya
         }
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
         {
-            ListBox lb = (listaHubSection.ContentTemplate.LoadContent() as ListBox);
+            ListBox lb = ((listaHubSection.ContentTemplate.LoadContent()as Grid).Children[0] as ListBox);
             if (lb.SelectedItem != null)
             {
                 lb.SelectedItem = null;
